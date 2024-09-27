@@ -2,7 +2,6 @@
 - After developing a machine learning or neural network model, to deploy the algorithm to production, we need to set up an API on the prediction server using Flask or any other web framework, along with the rest of the software code. The prediction server can be either in the cloud or at the edge. In manufacturing, edge deployment is often preferred because it ensures the factory continues operating even when the internet connection goes down.
 - For example, The edge device has inspection software with camera control. It captures images and sends an API request to the prediction server. The prediction server processes the images to predict the output and sends the result back to the edge device as a response to the API request. Based on this prediction (API response), the software on the edge device determines whether to accept or reject the product.
 
-https://www.coursera.org/learn/introduction-to-machine-learning-in-production
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
 
 
