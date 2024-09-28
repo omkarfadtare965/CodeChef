@@ -11,7 +11,7 @@
 - __4) Deployment:__ In this phase, you deploy the model into production which also includes monitoring the system, and tracking the incoming data.
 - __5) Maintenance:__ After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
-![image](https://github.com/user-attachments/assets/017ad3f4-8ebb-464c-8dd3-02262da8f067)
+![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
 ### Challenges in deploying machine learning models:
 - __1) Machine learning or Statistical issues:__
