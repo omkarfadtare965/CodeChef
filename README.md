@@ -74,12 +74,29 @@ __Monitoring deployed machine learning systems:__
   
     ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
-## Introduction to Mlops:
+## TFX Machine learning pipeline:
 - An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine learning process more efficient and scalable.
 
   ![image](https://github.com/user-attachments/assets/3fc6c6aa-a587-4d4c-802f-833ab4fd589c)
 
    ![image](https://github.com/user-attachments/assets/de4a1c44-d0af-4a9f-b48a-f88b6b5224a1)
+
+![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
+
+![image](https://github.com/user-attachments/assets/66f19170-6227-4400-bf62-93d3c3094aa2)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
