@@ -83,37 +83,42 @@ __DAG (Directed Acyclic Graph):__
 - ___Acyclic:___ meaning you cannot start at one node and follow the directed edges to return to the same node.
 - ___Graph:___ meaning a collection of nodes connected by edges.
 
-__DAG ey components as nodes:__
-> Data Ingestion:
-  - ___ExampleGen:___ Ingests raw data into the pipeline.
+__DAG key components as Nodes:__
+> 1) Data ingestion:
+  - ___ExampleGen:___ ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 
-- ___StatisticsGen:___ Generates statistical summaries of the data.
-- ___SchemaGen:___ Creates a schema based on the data's feature vectors.
-- ___Transform:___ Performs feature engineering and data preprocessing.
-- ___Trainer:___ Trains the machine learning model.
-- ___Tuner:___ Optimizes the model’s hyperparameters.
-- ___Evaluator:___ Assesses the model’s performance.
-- ___InfraValidator:___ Checks infrastructure compatibility for deployment.
-- ___Pusher:___ Deploys the model to production environments.
+> 2) Data analysis:
+- ___StatisticsGen:___ analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. 
+- ___SchemaGen:___ defines the expected structure of the data, including data types, feature constraints, and relationships between features.
+
+> 3) Data transformation:
+- ___Transform:___ performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
+
+> 4) Model training:
+- ___Trainer:___ builds and trains the machine learning model using the processed data.
+- ___Tuner:___ optimizes the model’s hyperparameters to enhance performance.
+
+> 5) Model evaluation
+- ___Evaluator:___ assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
+
+> 6) Infrastructure validation:
+- ___InfraValidator:___ verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
+
+> 7) Deployment:
+- ___Pusher:___ deploys the model to production environments.
+
+__TFX (Tensorflow Extended):__
+- TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
+
+__TFX deployment options:__
+- ___TensorFlow Hub:___ for transfer learning and generating embeddings.
+- ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
+- ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
+- ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
 
   ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
 
   ![image](https://github.com/user-attachments/assets/66f19170-6227-4400-bf62-93d3c3094aa2)
-
-- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Important terminology:
 - ___Data drift:___ Data drift occurs when the distribution of data changes over time, leading to a decline in model performance. This happens when the data used for predictions differs from the data the model was originally trained on.
@@ -150,6 +155,7 @@ __DAG ey components as nodes:__
 - ___Experiment tracking tools:___ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
 - ___Data pipeline tools:___ Data pipeline tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
 - ___Orchestrator tools:___ Orchestration tools(orchestrator) like Celery, Argo, Airflow, Kubeflow, and Luigi can be used to schedule tasks, ensuring they run in the correct order based on their dependencies
+- ___DAG tools:___ 
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
 
@@ -162,3 +168,7 @@ __DAG ey components as nodes:__
 ![image](https://github.com/user-attachments/assets/3b289c1a-d812-44a9-ae4b-a4cf49a8f706)
 
 ![image](https://github.com/user-attachments/assets/96287642-fa65-464c-a97f-de9a1c529869)
+
+
+__Orchestration Tools:__
+Role: Execute the pipeline by managing the workflow defined by the DAG. Function: Handle scheduling, task execution, retries, parallelism, and resource management. Output: Actual execution of the ML pipeline as per the defined DAG.
