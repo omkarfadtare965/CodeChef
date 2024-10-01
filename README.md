@@ -3,7 +3,7 @@
 - After developing a machine learning or neural network model, to deploy the algorithm into production, we need to set up an API on the prediction server using Flask or any other web framework, along with the rest of the software code. The prediction server can be either in the cloud or at the edge. Edge deployment is often preferred in the manufacturing domain because it ensures the factory continues operating even when the internet connection goes down.
 - For example, The edge device has inspection software with camera control. It captures images and sends an API request to the prediction server. The prediction server processes the images to predict the output and sends the result back to the edge device as a response to the API request. Based on this prediction (API response), the software on the edge device determines whether to accept or reject the product.
 
-![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
+  ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
 __Machine learning Project lifecycle__
 - ___1) Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency(prediction time), throughput(queries per second), and resource needs(time, compute, budget).
@@ -12,7 +12,7 @@ __Machine learning Project lifecycle__
 - ___4) Deployment:___ In this phase, you deploy the model into production which also includes monitoring the system, and tracking the incoming data.
 - ___5) Maintenance:___ After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
-![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
+  ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
 __Data pipeline:__ 
 - A data pipeline refers to the concept of replicating a series of steps involved in processing data during the development phase and production phase to produce the final output.
@@ -60,7 +60,7 @@ __Degree of automation:__
 - In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the usecase. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
-![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
+  ![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
 
 __Monitoring deployed machine learning systems:__
 - The most common way to monitor a machine learning (ML) system is by using a dashboard that tracks its performance over time. Depending on your application, the dashboard may monitor different metrics, such as server load, non-null outputs (where the ML system fails to return an output), and missing input values (which can indicate that something in the input data has changed).
@@ -71,17 +71,15 @@ __Monitoring deployed machine learning systems:__
 - When a model needs updating, there are two main approaches:
   - ___Manual retraining:___ In manual retraining, an engineer may retrain the model, perform error analysis on the new model, and deploy the updated version.
   - ___Automatic retraining:___ In automatic retraining, the retraining process occurs automatically. Based on predefined rules or performance metrics, the new updated version of the model is deployed without manual intervention.
-
-![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
+  
+    ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
 ## Introduction to Mlops:
 - An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine learning process more efficient and scalable.
 
-![image](https://github.com/user-attachments/assets/3fc6c6aa-a587-4d4c-802f-833ab4fd589c)
+  ![image](https://github.com/user-attachments/assets/3fc6c6aa-a587-4d4c-802f-833ab4fd589c)
 
-- 
-
-![image](https://github.com/user-attachments/assets/de4a1c44-d0af-4a9f-b48a-f88b6b5224a1)
+   ![image](https://github.com/user-attachments/assets/de4a1c44-d0af-4a9f-b48a-f88b6b5224a1)
 
 
 
