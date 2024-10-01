@@ -75,6 +75,7 @@ __Monitoring deployed machine learning systems:__
 ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
 ## Introduction to Mlops:
+![image](https://github.com/user-attachments/assets/0c7b1e0f-4abe-481e-aa41-c3701a38e5ad)
 
 
 ## Important terminology:
