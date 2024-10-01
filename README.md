@@ -16,8 +16,13 @@
 ### Data pipeline: 
 - A data pipeline refers to the concept of replicating a series of steps involved in processing data during the development phase and production phase to produce the final output.
 - Replicability is key to ensuring that your machine learning model behaves consistently across different environments (development, testing, and production).
-- Tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
+- During the initial development phase, it's okay to use manual methods and focus on making the system work but when moving to production, tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline.
+- These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
+- Tracking metadata, data provenance, and data lineage is crucial for managing complex data pipelines.
 
+__Example:__
+> 1) Omkar
+  
 ### Challenges in deploying machine learning models:
 - __1) Machine learning or Statistical issues:__
   - Concept drift
@@ -75,6 +80,7 @@
 - __MlOps:__ MlOps (Machine Learning Operations) is a way to manage and deploy machine learning models quickly and efficiently into production. 
 - __Real time predictions:__ It involves making predictions instantly as new data comes in.
 - __Batch predictions:__ It involves making predictions on a group of data at once, rather than one at a time.
+- __Metadata:__ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage:history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
 
 ### Libraries:
 - TFX
