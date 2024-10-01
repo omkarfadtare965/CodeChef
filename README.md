@@ -84,8 +84,7 @@ __DAG (Directed Acyclic Graph):__
 - Graph meaning a collection of nodes connected by edges.
 
 __DAG key components as Nodes:__
-> 1) Data ingestion:
-  - ___ExampleGen:___ ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
+> ___1) Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 
 > 2) Data analysis:
 - ___StatisticsGen:___ analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. 
