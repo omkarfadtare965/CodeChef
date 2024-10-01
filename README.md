@@ -1,12 +1,12 @@
 # MlOps (Machine learning Operations)
 ## Basics:
 - After developing a machine learning or neural network model, to deploy the algorithm into production, we need to set up an API on the prediction server using Flask or any other web framework, along with the rest of the software code. The prediction server can be either in the cloud or at the edge. Edge deployment is often preferred in the manufacturing domain because it ensures the factory continues operating even when the internet connection goes down.
-- For example, The edge device has inspection software with camera control. It captures images and sends an API request to the prediction server. The prediction server processes the images to predict the output and sends the result back to the edge device as a response to the API request. Based on this prediction (API response), the software on the edge device determines whether to accept or reject the product.
+- For example, the edge device has inspection software with camera control. It captures images and sends an API request to the prediction server. The prediction server processes the images to predict the output and sends the result back to the edge device as a response to the API request. Based on this prediction (API response), the software on the edge device determines whether to accept or reject the product.
 
   ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
 __Machine learning Project lifecycle__
-- ___1) Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency(prediction time), throughput(queries per second), and resource needs(time, compute, budget).
+- ___1) Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
 - ___2) Data:___ In this phase, you collect and organize data, define data sources, establish baselines, and label the data.
 - ___3) Modeling:___ In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
 - ___4) Deployment:___ In this phase, you deploy the model into production which also includes monitoring the system, and tracking the incoming data.
@@ -20,13 +20,7 @@ __Data pipeline:__
 - During the initial development phase, it's okay to use manual methods and focus on making the system work but when moving to production, tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline.
 - These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
 - Tracking metadata, data provenance, and data lineage is crucial for managing complex data pipelines; maintaining a log of data sources, transformations, and processing steps helps understand the flow of data from raw input to final output. Additionally, storing metadata about the data such as creation date, schema, and versioning, allows you to track modifications and aids in debugging any issues.
-
-___Example:___
-> ___Apache Beam:___ can be used to automate the process of cleaning the data.
-
-> ___TensorFlow:___ Transform: can be used to automate feature engineering process.
-
-> ___Airflow:___ can be used to schedule regular evaluations of the model as new data comes in.
+- Data pipeline tools like Apache Beam can be used to automate the process of cleaning the data, TensorFlow Transform can be used to automate the feature engineering process, and Airflow can be used to schedule regular evaluations of the model as new data comes in.
 
 __Challenges in deploying machine learning models:__
 - ___1) Machine learning or Statistical issues:___
@@ -34,7 +28,7 @@ __Challenges in deploying machine learning models:__
   - Data drift
 - ___2) Software engine issues:___
    - Whether you need real-time predictions or batch predictions?
-   - Whether your prediction service run in the cloud, or on edge devices?
+   - Whether your prediction service runs in the cloud, or on edge devices?
    - How many compute resources do you have(CPU/GPU)?
    - Considerations for latency, throughput(queries per second)
    - Logging(to track the behaviour and performance of a deployed machine learning model)
@@ -42,7 +36,7 @@ __Challenges in deploying machine learning models:__
 
 __Deployment patterns:__
 - ___1) New product:___ When launching a new product that hasn’t been offered before, a common pattern is to direct a small portion of traffic to the model, and then gradually increase it as confidence grows. This reduces the risk of impacting a large number of users with an untested system.
-- For example, a company releases a new recommendation system. Initially, only 5% of users get recommendations from the new system. As the system proves reliable, traffic is gradually increased until all users are served by it.
+- For example, a company releases a new recommendation system. Initially, only 5% of users got recommendations from the new system. As the system proves reliable, traffic is gradually increased until all users are served by it.
 - ___2) Automate or Assist manual tasks:___ This pattern is useful when replacing or supporting a manual process with an algorithm. For example, if factory workers inspect smartphones for scratches, and you want to use machine learning to assist or replace human inspectors.
   - ___Shadow deployment:___ The machine learning algorithm "shadows" the human worker by running in parallel but doesn’t make any actual decisions. The output from the algorithm is compared with the human’s decisions to evaluate its performance.
   - For example, a factory inspector and an algorithm both check for scratches on phones, but only the human inspector's decision matters at first. Over time, the algorithm's performance is analyzed before it’s allowed to make real decisions.
@@ -57,7 +51,7 @@ __Degree of automation:__
 - ___3) AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
 - ___4) Partial automation:___ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
 - ___5) Full automation:___ The learning algorithm handles every decision without human intervention.
-- In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the usecase. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
+- In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the use-case. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
   ![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
@@ -67,7 +61,7 @@ __Monitoring deployed machine learning systems:__
 - The metrics used are decided by discussing potential issues that could arise in the system. A good practice is to start with a lot of metrics and gradually remove those that are not useful.
   - ___Software metrics:___ includes memory usage, compute latency, throughput, and server load metrics
   - ___Input and output metrics:___ includes metrics to track performance of the ML model
-- Machine learning modeling and deployment are both highly iterative processes. Once your initial deployment is running, you can set up monitoring dashboards and thresholds to track the model's performance on real traffic and trigger alarms. Based on the metrics, you may need to update your deployment.
+- Machine learning modelling and deployment are both highly iterative processes. Once your initial deployment is running, you can set up monitoring dashboards and thresholds to track the model's performance on real traffic and trigger alarms. Based on the metrics, you may need to update your deployment.
 - When a model needs updating, there are two main approaches:
   - ___Manual retraining:___ In manual retraining, an engineer may retrain the model, perform error analysis on the new model, and deploy the updated version.
   - ___Automatic retraining:___ In automatic retraining, the retraining process occurs automatically. Based on predefined rules or performance metrics, the new updated version of the model is deployed without manual intervention.
@@ -99,7 +93,7 @@ __DAG key components as Nodes:__
 > ___7) Deployment:___ "Pusher" deploys the model to production environments.
 
 __TFX (Tensorflow Extended):__
-- TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
+- The TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
 - TFX deployment options:
   - ___TensorFlow Hub:___ for transfer learning and generating embeddings.
   - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
