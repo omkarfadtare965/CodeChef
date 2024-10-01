@@ -78,19 +78,13 @@ __DAG (Directed Acyclic Graph):__
 - Graph meaning a collection of nodes connected by edges.
 
 __DAG key components as Nodes:__
-> ___1) Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
-
-> ___2) Data analysis:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
-
-> ___3) Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
-
-> ___4) Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
-
-> ___5) Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
-
-> ___6) Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
-
-> ___7) Deployment:___ "Pusher" deploys the model to production environments.
+- ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
+- ___Data analysis:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
+- ___3) Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
+- ___4) Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
+- ___5) Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
+- ___6) Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
+-___7) Deployment:___ "Pusher" deploys the model to production environments.
 
 __TFX (Tensorflow Extended):__
 - The TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
@@ -118,7 +112,7 @@ __TFX (Tensorflow Extended):__
 - ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
 - ___Orchestration:___ in simple terms means organizing and coordinating different tasks or components so they work together smoothly.
 - ___Orchestrator:___ is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
-- ___DAG(directed acyclic graph):___ is a powerful tool for structuring ML pipelines
+- ___DAG(directed acyclic graph):___ is a powerful tool for defining ML pipelines
 
 ## Libraries:
 - TFX (end-to-end machine learning platform for deploying production ml pipeline)
@@ -139,7 +133,6 @@ __TFX (Tensorflow Extended):__
 - ___Experiment tracking tools:___ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
 - ___Data pipeline tools:___ Data pipeline tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
 - ___Orchestrator tools:___ Orchestration tools(orchestrator) like Celery, Argo, Airflow, Kubeflow, and Luigi can be used to schedule tasks, ensuring they run in the correct order based on their dependencies
-- ___DAG tools:___ 
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
 
