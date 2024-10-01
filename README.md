@@ -79,9 +79,9 @@ __Monitoring deployed machine learning systems:__
 
 __DAG (Directed Acyclic Graph):__
 - DAG is a powerful tool for structuring the ML pipeline.
-- ___Directed:___ meaning the connections between nodes have a direction, indicating a one-way relationship from one node to another.
-- ___Acyclic:___ meaning you cannot start at one node and follow the directed edges to return to the same node.
-- ___Graph:___ meaning a collection of nodes connected by edges.
+- Directed meaning the connections between nodes have a direction, indicating a one-way relationship from one node to another.
+- Acyclic meaning you cannot start at one node and follow the directed edges to return to the same node.
+- Graph meaning a collection of nodes connected by edges.
 
 __DAG key components as Nodes:__
 > 1) Data ingestion:
