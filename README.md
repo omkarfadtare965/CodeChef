@@ -6,11 +6,11 @@
   ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
 __Machine learning Project lifecycle__
-- ___1) Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
-- ___2) Data:___ In this phase, you collect and organize data, define data sources, establish baselines, and label the data.
-- ___3) Modeling:___ In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
-- ___4) Deployment:___ In this phase, you deploy the model into production which also includes monitoring the system, and tracking the incoming data.
-- ___5) Maintenance:___ After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
+- ___Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
+- ___Data:___ In this phase, you collect and organize data, define data sources, establish baselines, and label the data.
+- ___Modeling:___ In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
+- ___Deployment:___ In this phase, you deploy the model into production which also includes monitoring the system, and tracking the incoming data.
+- ___Maintenance:___ After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
   ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
@@ -23,10 +23,10 @@ __Data pipeline:__
 - Data pipeline tools like Apache Beam can be used to automate the process of cleaning the data, TensorFlow Transform can be used to automate the feature engineering process, and Airflow can be used to schedule regular evaluations of the model as new data comes in.
 
 __Challenges in deploying machine learning models:__
-- ___1) Machine learning or Statistical issues:___
+- ___Machine learning or Statistical issues:___
   - Concept drift
   - Data drift
-- ___2) Software engine issues:___
+- ___Software engine issues:___
    - Whether you need real-time predictions or batch predictions?
    - Whether your prediction service runs in the cloud, or on edge devices?
    - How many compute resources do you have(CPU/GPU)?
@@ -35,22 +35,22 @@ __Challenges in deploying machine learning models:__
    - Security and privacy, when dealing with sensitive data.
 
 __Deployment patterns:__
-- ___1) New product:___ When launching a new product that hasn’t been offered before, a common pattern is to direct a small portion of traffic to the model, and then gradually increase it as confidence grows. This reduces the risk of impacting a large number of users with an untested system.
+- ___New product:___ When launching a new product that hasn’t been offered before, a common pattern is to direct a small portion of traffic to the model, and then gradually increase it as confidence grows. This reduces the risk of impacting a large number of users with an untested system.
 - For example, a company releases a new recommendation system. Initially, only 5% of users got recommendations from the new system. As the system proves reliable, traffic is gradually increased until all users are served by it.
-- ___2) Automate or Assist manual tasks:___ This pattern is useful when replacing or supporting a manual process with an algorithm. For example, if factory workers inspect smartphones for scratches, and you want to use machine learning to assist or replace human inspectors.
+- ___Automate or Assist manual tasks:___ This pattern is useful when replacing or supporting a manual process with an algorithm. For example, if factory workers inspect smartphones for scratches, and you want to use machine learning to assist or replace human inspectors.
   - ___Shadow deployment:___ The machine learning algorithm "shadows" the human worker by running in parallel but doesn’t make any actual decisions. The output from the algorithm is compared with the human’s decisions to evaluate its performance.
   - For example, a factory inspector and an algorithm both check for scratches on phones, but only the human inspector's decision matters at first. Over time, the algorithm's performance is analyzed before it’s allowed to make real decisions.
   - ___Canary deployment:___ Once confident, you can let the algorithm start making decisions with a small percentage of traffic(e.g., 5%). This way, mistakes will only impact a small part of the system. As the model performs well, the traffic can be gradually increased.
   - For example, the algorithm starts inspecting only 5% of phones. If it performs well, this is increased to 50%, and eventually, all phones are inspected by the algorithm.
-- ___3) Replacing a previous machine learning system:___ When replacing an older machine learning system with a newer one, it’s common to gradually direct traffic to the new system while monitoring its performance.
+- ___Replacing a previous machine learning system:___ When replacing an older machine learning system with a newer one, it’s common to gradually direct traffic to the new system while monitoring its performance.
   - ___Blue-Green deployment:___ This involves running two versions of a system: an old version (Blue) and a new version (Green). At deployment, traffic is switched entirely from Blue to Green. If there’s an issue with the new system, you can quickly revert traffic back to the Blue version, ensuring minimal disruption.
 
 __Degree of automation:__
-- ___1) Human only:___ No automation is involved; all decisions are made entirely by humans.
-- ___2) Shadow automation:___ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
-- ___3) AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
-- ___4) Partial automation:___ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
-- ___5) Full automation:___ The learning algorithm handles every decision without human intervention.
+- ___Human only:___ No automation is involved; all decisions are made entirely by humans.
+- ___Shadow automation:___ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
+- ___AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
+- ___Partial automation:___ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
+- ___Full automation:___ The learning algorithm handles every decision without human intervention.
 - In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the use-case. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
@@ -80,11 +80,11 @@ __DAG (Directed Acyclic Graph):__
 __DAG key components as Nodes:__
 - ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 - ___Data analysis:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
-- ___3) Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
-- ___4) Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
-- ___5) Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
-- ___6) Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
--___7) Deployment:___ "Pusher" deploys the model to production environments.
+- ___Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
+- ___Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
+- ___Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
+- ___Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
+- ___Deployment:___ "Pusher" deploys the model to production environments.
 
 __TFX (Tensorflow Extended):__
 - The TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
@@ -112,7 +112,7 @@ __TFX (Tensorflow Extended):__
 - ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
 - ___Orchestration:___ in simple terms means organizing and coordinating different tasks or components so they work together smoothly.
 - ___Orchestrator:___ is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
-- ___DAG(directed acyclic graph):___ is a powerful tool for defining ML pipelines
+- ___DAG (Directed Acyclic Graph):___ is a powerful tool for defining ML pipelines
 
 ## Libraries:
 - TFX (end-to-end machine learning platform for deploying production ml pipeline)
