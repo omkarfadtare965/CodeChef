@@ -78,8 +78,20 @@
 - Pytorch
 
 ### Tools: 
-- __Experiment tracking tools:__ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score). 
+- __Experiment tracking tools:__ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
+- Tensorflow Transform, Apache Beam, Airflow
 
-### Digrams for better understanding
+### <u>Digrams for better understanding</u>
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
+
+### Best practices to manage Data pipeline:
+- Data pipeline referrs to when your data has multiple steps of processing before getting to the final output.
+- his video discusses the concept of data pipelines, which are multiple steps of processing data before it's used to get the final result. For example, if you want to predict whether a user is looking for a job, you need to clean the raw data first by removing spam accounts and merging user IDs. This can be done using scripts or machine learning algorithms. However, when you move from development to production, you must ensure the data is processed the same way to maintain consistency.
+
+During the early "proof of concept" phase, it's okay to focus more on getting the system to work rather than making everything fully replicable. You can have some manual data processing, but it's important to keep detailed notes and comments to help you replicate the process later.
+
+Once the project is ready for production, it's crucial to ensure that all data processing steps are replicable. At this point, you should use tools like TensorFlow Transform, Apache Beam, or Airflow to automate and manage the data pipeline effectively. These tools help ensure that the processing remains the same as new data comes in.
+
+Lastly, in more complex applications, you'll also need to think about tracking metadata, data provenance, and lineage to keep the process organized and replicable.
+
