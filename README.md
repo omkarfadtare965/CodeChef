@@ -81,7 +81,7 @@
 - __Experiment tracking tools:__ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
 - Tensorflow Transform, Apache Beam, Airflow
 
-### <u>Digrams for better understanding</u>
+### Digrams for better understanding
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
 
