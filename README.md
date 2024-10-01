@@ -86,34 +86,25 @@ __DAG (Directed Acyclic Graph):__
 __DAG key components as Nodes:__
 > ___1) Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 
-> 2) Data analysis:
-- ___StatisticsGen:___ analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. 
-- ___SchemaGen:___ defines the expected structure of the data, including data types, feature constraints, and relationships between features.
+> ___2) Data analysis:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
 
-> 3) Data transformation:
-- ___Transform:___ performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
+> ___3) Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
 
-> 4) Model training:
-- ___Trainer:___ builds and trains the machine learning model using the processed data.
-- ___Tuner:___ optimizes the model’s hyperparameters to enhance performance.
+> ___4) Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
 
-> 5) Model evaluation
-- ___Evaluator:___ assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
+> ___5) Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
 
-> 6) Infrastructure validation:
-- ___InfraValidator:___ verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
+> ___6) Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
 
-> 7) Deployment:
-- ___Pusher:___ deploys the model to production environments.
+> ___7) Deployment:___ "Pusher" deploys the model to production environments.
 
 __TFX (Tensorflow Extended):__
 - TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
-
-__TFX deployment options:__
-- ___TensorFlow Hub:___ for transfer learning and generating embeddings.
-- ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
-- ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
-- ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
+- TFX deployment options:
+  - ___TensorFlow Hub:___ for transfer learning and generating embeddings.
+  - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
+  - ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
+  - ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
 
   ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
 
