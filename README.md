@@ -75,7 +75,14 @@ __Monitoring deployed machine learning systems:__
 ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
 ## Introduction to Mlops:
-![image](https://github.com/user-attachments/assets/0c7b1e0f-4abe-481e-aa41-c3701a38e5ad)
+- An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine learning process more efficient and scalable.
+
+![image](https://github.com/user-attachments/assets/3fc6c6aa-a587-4d4c-802f-833ab4fd589c)
+
+- 
+
+![image](https://github.com/user-attachments/assets/de4a1c44-d0af-4a9f-b48a-f88b6b5224a1)
+
 
 
 ## Important terminology:
@@ -90,9 +97,15 @@ __Monitoring deployed machine learning systems:__
 - ___Real time predictions:___ It involves making predictions instantly as new data comes in.
 - ___Batch predictions:___ It involves making predictions on a group of data at once, rather than one at a time.
 - ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage:history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
+- ___Orchestration:___ in simple terms means organizing and coordinating different tasks or components so they work together smoothly.
+- ___Orchestrator:___ is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
+- 
 
 ## Libraries:
-- TFX
+- TFX (end to end machine learning platform for deploying production ml pipeline)
+
+  ![image](https://github.com/user-attachments/assets/6222935c-ae42-4016-8a58-796c344e7c02)
+
 - Tensorflow
 - Keras
 - Pytorch
@@ -105,6 +118,17 @@ __Monitoring deployed machine learning systems:__
 
 ## Tools: 
 - ___Experiment tracking tools:___ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
-- ___Data pipeline tools:___ Tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
+- ___Data pipeline tools:___ Data pipeline tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
+- ___Orchestrator tools:___ Orchestration tools(orchestrator) like Celery, Argo, Airflow, Kubeflow, and Luigi can be used to schedule tasks, ensuring they run in the correct order based on their dependencies
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
+
+![image](https://github.com/user-attachments/assets/1974eaa3-e959-4272-b126-ebaf8dce3699)
+
+![image](https://github.com/user-attachments/assets/ba9edf15-99d6-41b1-9923-82ad629c24c6)
+
+![image](https://github.com/user-attachments/assets/5089272c-56d7-4a5e-acd5-a1691ba0f5bf)
+
+![image](https://github.com/user-attachments/assets/3b289c1a-d812-44a9-ae4b-a4cf49a8f706)
+
+![image](https://github.com/user-attachments/assets/96287642-fa65-464c-a97f-de9a1c529869)
