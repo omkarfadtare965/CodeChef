@@ -22,7 +22,9 @@
 
 __Example:__
 > Apache Beam: can be used to automate the process of cleaning the data.
+
 > TensorFlow Transform: can be used to automate feature engineering process.
+
 > Airflow: can be used to schedule regular evaluations of the model as new data comes in.
   
 ### Challenges in deploying machine learning models:
