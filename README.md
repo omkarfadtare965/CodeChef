@@ -96,7 +96,7 @@ __TFX (Tensorflow Extended):__
 
   ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
 
-  ![image](https://github.com/user-attachments/assets/66f19170-6227-4400-bf62-93d3c3094aa2)
+![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
 
 ## Important terminology:
 - ___Data drift:___ Data drift occurs when the distribution of data changes over time, leading to a decline in model performance. This happens when the data used for predictions differs from the data the model was originally trained on.
