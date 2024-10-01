@@ -14,6 +14,20 @@ __Machine learning Project lifecycle__
 
 ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
+__Data pipeline:__ 
+- A data pipeline refers to the concept of replicating a series of steps involved in processing data during the development phase and production phase to produce the final output.
+- Replicability is key to ensure that the machine learning model behaves consistently across different environments (development, testing, and production).
+- During the initial development phase, it's okay to use manual methods and focus on making the system work but when moving to production, tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline.
+- These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
+- Tracking metadata, data provenance, and data lineage is crucial for managing complex data pipelines; maintaining a log of data sources, transformations, and processing steps helps understand the flow of data from raw input to final output. Additionally, storing metadata about the data such as creation date, schema, and versioning, allows you to track modifications and aids in debugging any issues.
+
+___Example:___
+> ___Apache Beam:___ can be used to automate the process of cleaning the data.
+
+> ___TensorFlow:___ Transform: can be used to automate feature engineering process.
+
+> ___Airflow:___ can be used to schedule regular evaluations of the model as new data comes in.
+
 __Challenges in deploying machine learning models:__
 - ___1) Machine learning or Statistical issues:___
   - Concept drift
@@ -38,11 +52,11 @@ __Deployment patterns:__
   - ___Blue-Green deployment:___ This involves running two versions of a system: an old version (Blue) and a new version (Green). At deployment, traffic is switched entirely from Blue to Green. If there’s an issue with the new system, you can quickly revert traffic back to the Blue version, ensuring minimal disruption.
 
 __Degree of automation:__
-- __1) Human only:__ No automation is involved; all decisions are made entirely by humans.
-- __2) Shadow automation:__ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
-- __3) AI Assistance:__ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
-- __4) Partial automation:__ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
-- __5) Full automation:__ The learning algorithm handles every decision without human intervention.
+- ___1) Human only:___ No automation is involved; all decisions are made entirely by humans.
+- ___2) Shadow automation:___ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
+- ___3) AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
+- ___4) Partial automation:___ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
+- ___5) Full automation:___ The learning algorithm handles every decision without human intervention.
 - In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the usecase. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
@@ -61,19 +75,7 @@ __Monitoring deployed machine learning systems:__
 ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
 ## Introduction to Mlops:
-__Data pipeline:__ 
-- A data pipeline refers to the concept of replicating a series of steps involved in processing data during the development phase and production phase to produce the final output.
-- Replicability is key to ensure that the machine learning model behaves consistently across different environments (development, testing, and production).
-- During the initial development phase, it's okay to use manual methods and focus on making the system work but when moving to production, tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline.
-- These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
-- Tracking metadata, data provenance, and data lineage is crucial for managing complex data pipelines; maintaining a log of data sources, transformations, and processing steps helps understand the flow of data from raw input to final output. Additionally, storing metadata about the data such as creation date, schema, and versioning, allows you to track modifications and aids in debugging any issues.
 
-___Example:___
-> ___Apache Beam:___ can be used to automate the process of cleaning the data.
-
-> ___TensorFlow:___ Transform: can be used to automate feature engineering process.
-
-> ___Airflow:___ can be used to schedule regular evaluations of the model as new data comes in.
 
 ## Important terminology:
 - ___Data drift:___ Data drift occurs when the distribution of data changes over time, leading to a decline in model performance. This happens when the data used for predictions differs from the data the model was originally trained on.
@@ -103,7 +105,5 @@ ___Example:___
 ## Tools: 
 - ___Experiment tracking tools:___ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
 - ___Data pipeline tools:___ Tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
-
-## Digrams for better understanding
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
