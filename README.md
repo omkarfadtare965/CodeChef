@@ -74,18 +74,33 @@ __Monitoring deployed machine learning systems:__
   
     ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
-## TFX Machine learning pipeline:
-- An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine learning process more efficient and scalable.
+## Machine learning pipeline:
+- An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine-learning process more efficient and scalable.
 
-  ![image](https://github.com/user-attachments/assets/3fc6c6aa-a587-4d4c-802f-833ab4fd589c)
+__DAG (Directed Acyclic Graph):__
+- DAG is a powerful tool for structuring the ML pipeline.
+- ___Directed:___ meaning the connections between nodes have a direction, indicating a one-way relationship from one node to another.
+- ___Acyclic:___ meaning you cannot start at one node and follow the directed edges to return to the same node.
+- ___Graph:___ meaning a collection of nodes connected by edges.
 
-   ![image](https://github.com/user-attachments/assets/de4a1c44-d0af-4a9f-b48a-f88b6b5224a1)
+__DAG ey components as nodes:__
+> Data Ingestion:
+  - ___ExampleGen:___ Ingests raw data into the pipeline.
 
-![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
+- ___StatisticsGen:___ Generates statistical summaries of the data.
+- ___SchemaGen:___ Creates a schema based on the data's feature vectors.
+- ___Transform:___ Performs feature engineering and data preprocessing.
+- ___Trainer:___ Trains the machine learning model.
+- ___Tuner:___ Optimizes the model’s hyperparameters.
+- ___Evaluator:___ Assesses the model’s performance.
+- ___InfraValidator:___ Checks infrastructure compatibility for deployment.
+- ___Pusher:___ Deploys the model to production environments.
 
-![image](https://github.com/user-attachments/assets/66f19170-6227-4400-bf62-93d3c3094aa2)
+  ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
 
+  ![image](https://github.com/user-attachments/assets/66f19170-6227-4400-bf62-93d3c3094aa2)
 
+- 
 
 
 
@@ -104,20 +119,20 @@ __Monitoring deployed machine learning systems:__
 - ___Data drift:___ Data drift occurs when the distribution of data changes over time, leading to a decline in model performance. This happens when the data used for predictions differs from the data the model was originally trained on.
 - For example, a model predicting house prices may be trained on data from 2010 to 2020. If economic factors or housing trends shift, such as a recession or new developments, the data distribution changes, causing the model's predictions to become less accurate.
 - ___Concept drift:___ Concept drift occurs when the relationship between input data and the target output changes over time, leading to a decline in model performance.
-- For example, a model predicting customer churn may be trained on patterns like older customers with long subscriptions being more likely to churn. If the business introduces new features that attract younger customers with different behaviors, the model's performance may decline as the underlying customer patterns shift.
-- ___Edge device:___ An edge device is a piece of hardware that processes data locally, closer to where it is generated, rather than sending it to a centralized server or cloud. It can perform tasks like collecting data, running AI models, or controlling systems, often used in IoT, manufacturing, and automation.
+- For example, a model predicting customer churn may be trained on patterns like older customers with long subscriptions being more likely to churn. If the business introduces new features that attract younger customers with different behaviours, the model's performance may decline as the underlying customer patterns shift.
+- ___Edge device:___ An edge device is a piece of hardware that processes data locally, closer to where it is generated, rather than sending it to a centralized server or cloud. It can perform tasks like collecting data, running AI models, or controlling systems, and it is often used in IoT, manufacturing, and automation.
 - ___Data-centric approach:___ Data-centric approach focuses on improving the quality and quantity of the data used to train models.
-- ___Model-centric approach:___ Model-centric approach focuses on improving the algorithms or models parameters regardless of data.
+- ___Model-centric approach:___ Model-centric approach focuses on improving the algorithms or model parameters regardless of data.
 - ___MlOps:___ MlOps (Machine Learning Operations) is a way to manage and deploy machine learning models quickly and efficiently into production. 
-- ___Real time predictions:___ It involves making predictions instantly as new data comes in.
+- ___Real-time predictions:___ It involves making predictions instantly as new data comes in.
 - ___Batch predictions:___ It involves making predictions on a group of data at once, rather than one at a time.
-- ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage:history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
+- ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
 - ___Orchestration:___ in simple terms means organizing and coordinating different tasks or components so they work together smoothly.
 - ___Orchestrator:___ is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
-- 
+- ___DAG(directed acyclic graph):___ is a powerful tool for structuring ML pipelines
 
 ## Libraries:
-- TFX (end to end machine learning platform for deploying production ml pipeline)
+- TFX (end-to-end machine learning platform for deploying production ml pipeline)
 
   ![image](https://github.com/user-attachments/assets/6222935c-ae42-4016-8a58-796c344e7c02)
 
