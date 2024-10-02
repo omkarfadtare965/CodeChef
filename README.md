@@ -128,15 +128,17 @@ __Types of Data issues:__
 - ___Model (performance) decay:___
 
 ## Libraries:
-- TFX (end-to-end machine learning platform for deploying production ml pipeline)
 - Tensorflow
 - Keras
 - Pytorch
+- TFDV
 - TensorFlow Transform
 - Apache Beam / Airflow
+- TFX 
 - Weights and Biases
 - Comet
 - MLflow
+- DVC
 - SageMaker Studio
 
 ## Tools: 
