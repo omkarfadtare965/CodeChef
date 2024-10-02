@@ -104,6 +104,39 @@ __Data validation:__
 - TFDV itself doesn't trigger alarms for any data issues but you can integrate other tools or custom scripts with TFDV's output to trigger notifications based on predefined conditions or thresholds. 
 - You can also use monitoring and alerting systems like Prometheus, Grafana, or cloud-based services like AWS CloudWatch to watch for specific signals from TFDV and send notifications accordingly.
 
+__Data Transform:__
+- Inconsistent data (e.g., data that isn’t scaled) and different feature engineering approaches can negatively impact model performance. This is why scalable data processing tools are important for handling large datasets efficiently.
+- The TensorFlow Transform (TFT) framework helps by allowing you to define preprocessing functions, like scaling or encoding, that can be applied to large datasets. To manage large-scale data efficiently, TFT uses Apache Beam to run these preprocessing functions.
+- Apache Beam ensures scalability by providing the infrastructure to process data in parallel and distribute the workload across multiple machines. It also offers a consistent API for both batch and stream processing, making it easy to switch between them without altering your code.
+- In TFT data transformation, you start with raw data and create a preprocessing function to define how the data should be transformed (e.g., scaling, encoding). After that, you set up an Apache Beam pipeline to apply this preprocessing function to the raw data.
+
+> Set up preprocessing function:
+```python
+import tensorflow_transform as tft
+
+def preprocessing_fn(inputs):
+    outputs = {}
+    outputs['size_normalized'] = tft.scale_to_0_1(inputs['size'])
+    outputs['bedrooms_normalized'] = tft.scale_to_0_1(inputs['bedrooms'])
+    outputs['location_one_hot'] = tft.compute_and_apply_vocabulary(inputs['location'])
+    return outputs
+```
+
+> Set up Apache BEam pipeline:
+```python
+import apache_beam as beam
+
+def run_tft_pipeline(raw_data):
+    with beam.Pipeline() as pipeline:
+        transformed_data, transform_metadata = (
+            pipeline
+            | 'ReadData' >> beam.Create(raw_data)  # Create a PCollection from raw data
+            | 'TransformData' >> tft.beam.AnalyzeAndTransformDataset(preprocessing_fn)  # Apply TFT
+        )
+        transformed_data | 'WriteData' >> beam.io.WriteToText('output.txt')  # Write transformed data
+
+```
+
 __Types of Data issues:__
 - ___Data drift:___ Data drift occurs when the data changes over time. For example, A store sees a sudden increase in online orders during the holiday season, which is different from the data used to train the model earlier in the year.
 - ___Concept drift:___ Concept drift occurs when the relationship between the input features and the target feature changes. For example, A model was trained to flag spam emails based on certain keywords, but now spammers use new words, so the model doesn’t work as well.
