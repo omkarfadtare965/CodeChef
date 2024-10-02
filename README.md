@@ -14,16 +14,6 @@ __Machine learning Project lifecycle__
 
   ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
-__Data pipeline:__ 
-- A data pipeline refers to the concept of replicating a series of steps involved in processing data during the development phase and production phase to produce the final output.
-- Replicability is key to ensure that the machine learning model behaves consistently across different environments (development, testing, and production).
-- During the initial development phase, it's okay to use manual methods and focus on making the system work but when moving to production, tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline.
-- These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
-- Tracking metadata, data provenance, and data lineage is crucial for managing complex data pipelines; maintaining a log of data sources, transformations, and processing steps helps understand the flow of data from raw input to final output. Additionally, storing metadata about the data such as creation date, schema, and versioning, allows you to track modifications and aids in debugging any issues.
-- Data pipeline tools like Apache Beam can be used to automate the process of cleaning the data, TensorFlow Transform can be used to automate the feature engineering process, and Airflow can be used to schedule regular evaluations of the model as new data comes in.
-
-
-
 __Challenges in deploying machine learning models:__
 - ___Machine learning or Statistical issues:___
   - Concept drift
@@ -81,7 +71,7 @@ __DAG (Directed Acyclic Graph):__
 
 __DAG key components as Nodes:__
 - ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
-- ___Data analysis:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
+- ___Data analysis or data validation:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
 - ___Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
 - ___Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
 - ___Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
@@ -100,6 +90,26 @@ __TFX (Tensorflow Extended):__
 
   ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
 
+### Data pipeline: 
+- A data pipeline refers to the series of steps involved in processing data during both the development and production phases to produce the final output. Ensuring replicability in a data pipeline is key to maintaining consistency in machine learning models across different environments, such as development, testing, and production. 
+- In production machine learning, ensuring data quality is crucial because poor data leads to poor model performance. Therefore, detecting data issues and ensuring data validation is essential. During the initial development phase, manual methods for managing the data pipeline may work, but as you move to production, automated tools are required.
+- Tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline, ensuring that the same data processing methods are applied as new data flows in. These tools help maintain model accuracy, reduce errors, and ensure continuous data validation for better performance.
+- Additionally, tracking metadata, data provenance, and data lineage is essential for managing complex data pipelines. This involves maintaining logs of data sources, transformations, and processing steps, which helps to understand the flow of data from raw input to final output. Storing metadata such as creation dates, schema information, and versioning allows for better tracking of modifications and aids in debugging.
+- Apache Beam can be used to automate the process of cleaning the data, TensorFlow Transform can be used to automate the feature engineering process, and Airflow can be used to schedule regular evaluations of the model as new data comes in.
+
+__Data validation:__
+- Data validation is the process of checking your data to ensure it's correct, consistent, and useful before using it in machine learning models
+- Tools like TensorFlow Data Validation (TFDV) and Pandas Profiling can be used for data validation. These tools help analyze data, detect data issues and generate reports on data quality.
+- TFDV, for example, provides insights into feature distributions, schema skew, and drift detection.
+- TFDV itself doesn't trigger alarms for any data issues but you can integrate other tools or custom scripts with TFDV's output to trigger notifications based on predefined conditions or thresholds. 
+- You can also use monitoring and alerting systems like Prometheus, Grafana, or cloud-based services like AWS CloudWatch to watch for specific signals from TFDV and send notifications accordingly.
+
+__Types of Data issues:__
+- ___Data drift:___ Data drift occurs when the data changes over time. For example, A store sees a sudden increase in online orders during the holiday season, which is different from the data used to train the model earlier in the year.
+- ___Concept drift:___ Concept drift occurs when the relationship between the input features and the target feature changes. For example, A model was trained to flag spam emails based on certain keywords, but now spammers use new words, so the model doesn’t work as well.
+- ___Schema skew:___ Schema skew occurs when the types of data change between training and serving. For example, The model was trained with age as a whole number, but now it’s receiving age as a decimal, causing errors.
+- ___Distribution skew:___ Distribution skew occurs when the spread or range of feature values is different between training and serving. For example, A weather prediction model trained with temperatures ranging from 0-100°F now sees temperatures from -50°F to 150°F, which it wasn’t prepared for.
+
 ## Important terminology:
 - ___Data drift:___ Data drift occurs when the distribution of data changes over time, leading to a decline in model performance. This happens when the data used for predictions differs from the data the model was originally trained on.
 - For example, a model predicting house prices may be trained on data from 2010 to 2020. If economic factors or housing trends shift, such as a recession or new developments, the data distribution changes, causing the model's predictions to become less accurate.
@@ -115,6 +125,7 @@ __TFX (Tensorflow Extended):__
 - ___Orchestration:___ in simple terms means organizing and coordinating different tasks or components so they work together smoothly.
 - ___Orchestrator:___ is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
 - ___DAG (Directed Acyclic Graph):___ is a powerful tool for defining ML pipelines
+- ___Model (performance) decay:___
 
 ## Libraries:
 - TFX (end-to-end machine learning platform for deploying production ml pipeline)
@@ -145,7 +156,17 @@ __TFX (Tensorflow Extended):__
 
 ![image](https://github.com/user-attachments/assets/96287642-fa65-464c-a97f-de9a1c529869)
 
+![image](https://github.com/user-attachments/assets/0c663e48-c9a4-44dd-a9b7-7845c9db85bd)
 
+![image](https://github.com/user-attachments/assets/d6a4a7c9-f421-4d1a-853f-6a6f125d10be)
+
+![image](https://github.com/user-attachments/assets/8ff01fd5-b000-47ab-9f5d-7a0b4f17777e)
+
+![image](https://github.com/user-attachments/assets/79ae876f-bb95-477c-8089-7b650d490d35)
+
+![image](https://github.com/user-attachments/assets/215ef187-fa14-4676-81f1-171823407036)
+
+## Scrap:
 __Orchestration Tools:__
 Role: Execute the pipeline by managing the workflow defined by the DAG. Function: Handle scheduling, task execution, retries, parallelism, and resource management. Output: Actual execution of the ML pipeline as per the defined DAG.
 
