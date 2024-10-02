@@ -22,6 +22,8 @@ __Data pipeline:__
 - Tracking metadata, data provenance, and data lineage is crucial for managing complex data pipelines; maintaining a log of data sources, transformations, and processing steps helps understand the flow of data from raw input to final output. Additionally, storing metadata about the data such as creation date, schema, and versioning, allows you to track modifications and aids in debugging any issues.
 - Data pipeline tools like Apache Beam can be used to automate the process of cleaning the data, TensorFlow Transform can be used to automate the feature engineering process, and Airflow can be used to schedule regular evaluations of the model as new data comes in.
 
+
+
 __Challenges in deploying machine learning models:__
 - ___Machine learning or Statistical issues:___
   - Concept drift
@@ -146,3 +148,10 @@ __TFX (Tensorflow Extended):__
 
 __Orchestration Tools:__
 Role: Execute the pipeline by managing the workflow defined by the DAG. Function: Handle scheduling, task execution, retries, parallelism, and resource management. Output: Actual execution of the ML pipeline as per the defined DAG.
+
+__Monitoring:__
+- Downtime
+- Errors
+- Distribution shifts
+- Data failure
+- Service failure
