@@ -122,10 +122,10 @@ __Types of Data issues:__
 - ___Real-time predictions:___ It involves making predictions instantly as new data comes in.
 - ___Batch predictions:___ It involves making predictions on a group of data at once, rather than one at a time.
 - ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
-- ___Orchestration:___ in simple terms means organizing and coordinating different tasks or components so they work together smoothly.
-- ___Orchestrator:___ is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
-- ___DAG (Directed Acyclic Graph):___ is a powerful tool for defining ML pipelines
-- ___Model (performance) decay:___
+- ___Orchestration:___ Orchestrationin simple terms means organizing and coordinating different tasks or components so they work together smoothly.
+- ___Orchestrator:___ Orchestrator is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies. In machine learning
+- ___DAG (Directed Acyclic Graph):___ DAG is a powerful tool for defining ML pipelines
+- ___Model (performance) decay:___ Model performance decay refers to the gradual decline in the accuracy or effectiveness of a machine learning model over time.
 
 ## Libraries:
 - Tensorflow
@@ -137,8 +137,15 @@ __Types of Data issues:__
 - TFX 
 - Weights and Biases
 - Comet
-- MLflow
+- Prefect
 - DVC
+- MLflow
+- Zenml
+- Bentoml
+- Flyte
+- Kubeflow pipeline
+- AWS Sagemaker pipeline
+- Azure ML Pipeline
 - SageMaker Studio
 
 ## Tools: 
