@@ -90,7 +90,7 @@ __TFX (Tensorflow Extended):__
 
   ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
 
-### Data pipeline: 
+__Data pipeline:__ 
 - A data pipeline refers to the series of steps involved in processing data during both the development and production phases to produce the final output. Ensuring replicability in a data pipeline is key to maintaining consistency in machine learning models across different environments, such as development, testing, and production. 
 - In production machine learning, ensuring data quality is crucial because poor data leads to poor model performance. Therefore, detecting data issues and ensuring data validation is essential. During the initial development phase, manual methods for managing the data pipeline may work, but as you move to production, automated tools are required.
 - Tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline, ensuring that the same data processing methods are applied as new data flows in. These tools help maintain model accuracy, reduce errors, and ensure continuous data validation for better performance.
