@@ -218,4 +218,12 @@ __Monitoring:__
 - Data failure
 - Service failure
 
+## What is mean by artifact?
 Data artefacts are created as pipeline components execute. Each time a component produces a result it generates an artifact. Artifacts are created as the components of the ml pipeline. Artifact includes basically everything that is produced by the pipeline.  including data in different stages of transformation often as a result of feature engineering and the model itself and things like schema and the metrics and so forth. Basically every result that is produced is an artifact
+- Meta data helps to identify data drift
+
+### Data versioning: DVC, Git-LFS
+### Environment versioning: Docker, Terraform
+### Code versioning: Github
+### 
+- Tracking different data versions. Managing a data pipeline is a big challenge as data evolves through the natural life cycle of a project over many different training runs amachine learning when its done properly 
