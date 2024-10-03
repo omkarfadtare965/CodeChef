@@ -217,3 +217,5 @@ __Monitoring:__
 - Distribution shifts
 - Data failure
 - Service failure
+
+Data artefacts are created as pipeline components execute. Each time a component produces a result it generates an artifact. Artifacts are created as the components of the ml pipeline. Artifact includes basically everything that is produced by the pipeline.  including data in different stages of transformation often as a result of feature engineering and the model itself and things like schema and the metrics and so forth. Basically every result that is produced is an artifact
