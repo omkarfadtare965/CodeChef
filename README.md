@@ -207,6 +207,11 @@ def run_tft_pipeline(raw_data):
 
 ![image](https://github.com/user-attachments/assets/215ef187-fa14-4676-81f1-171823407036)
 
+![image](https://github.com/user-attachments/assets/4e02f9bf-36fb-4c89-be63-405cee8ee1fc)
+
+![image](https://github.com/user-attachments/assets/193cdd7f-6325-489d-a197-26529e9c7540)
+
+
 ## Scrap:
 __Orchestration Tools:__
 Role: Execute the pipeline by managing the workflow defined by the DAG. Function: Handle scheduling, task execution, retries, parallelism, and resource management. Output: Actual execution of the ML pipeline as per the defined DAG.
