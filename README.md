@@ -84,19 +84,27 @@ __DAG (Directed Acyclic Graph):__
   
   ![image](https://github.com/user-attachments/assets/35b9ff9a-1a8a-49a2-9eb4-585df266edc5)
 
-__TFX production components:__
+__TFX production components or TFX "Hello World":__
+- ___ExampleGen:___ Ingests raw data from various sources, such as databases, cloud storage, or local files, into the pipeline.
+- ___StatisticsGen:___ Analyzes the ingested data and generates statistical summaries, such as types of features, ranges of numerical features, and distributions.
+- ___ExampleValidator:___ Detects issues with the data, such as missing values or anomalies, and helps validate the quality of the input data before further processing.
+- ___SchemaGen:___ Defines the expected structure of the data, including data types, feature constraints, and relationships between features.
+- ___Transform:___ Performs feature engineering by applying transformations to the raw data, creating meaningful features that are more suitable for model training.
+- ___Tuner:___ Optimizes the model's hyperparameters to enhance performance by performing automated hyperparameter tuning.
+- ___Trainer:___ Builds and trains the machine learning model using the transformed data, typically utilizing TensorFlow Estimators or Keras models.
+- ___Evaluator:___ Assesses the model's performance using various metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and compares the trained model against baseline models.
+- ___InfraValidator:___ Verifies that the deployment infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model. It helps to prevent deployment failures.
+- ___Pusher:___ Deploys the model to production environments, making it available for serving predictions.
+  - ___TensorFlow Hub:___ for transfer learning and generating embeddings.
+  - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
+  - ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
+  - ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
+
 - The TFX production components are built on top of various open-source libraries, including TensorFlow Data Validation, TensorFlow Transform, TensorFlow Model Analysis, TensorFlow Data Validation Outcomes, and TensorFlow Serving.
-- ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
-- ___Data analysis or data validation:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
-- ___Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
-- ___Model training:___ "Trainer" builds and trains the machine learning model using the processed data. "Tuner" optimizes the model’s hyperparameters to enhance performance.
-- ___Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
-- ___Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
-- ___Deployment:___ "Pusher" deploys the model to production environments.
 
 > ___Installing libraries:___
 ```python
-# Install TFX and related libraries using pip
+# Install TFX
 pip install tfx
 
 # For TensorFlow Estimators and Keras models
@@ -118,21 +126,6 @@ pip install tensorflow-serving-api
   ![image](https://github.com/user-attachments/assets/bffe0011-cae9-4e73-b84b-23d88c50a467)
 
   ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
-  
-
-__TFX (Tensorflow Extended):__
-- The TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
-- TFX deployment options:
-  - ___TensorFlow Hub:___ for transfer learning and generating embeddings.
-  - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
-  - ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
-  - ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
-
-  
-
-  ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
-
-  
 
 __Data pipeline:__ 
 - A data pipeline refers to the series of steps involved in processing data during both the development and production phases to produce the final output. Ensuring replicability in a data pipeline is key to maintaining consistency in machine learning models across different environments, such as development, testing, and production. 
