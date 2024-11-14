@@ -94,8 +94,7 @@ __TFX production components:__
 - ___Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
 - ___Deployment:___ "Pusher" deploys the model to production environments.
 
-> Installing libraries:
-
+> ___Installing libraries:___
 ```python
 # Install TFX and related libraries using pip
 pip install tfx
