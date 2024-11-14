@@ -59,8 +59,13 @@ __Challenges in deploying machine learning models:__
    - Security and privacy, when dealing with sensitive data.
 
 ## MlOps (Machine learning Operations):
-- MLOps (Machine Learning Operations) is a set of practices that combines machine learning and operations to make it easier to develop, deploy, and manage machine learning models in production.
-- It helps teams automate and streamline the entire ML lifecycle, from data preparation and model training to deployment and monitoring, ensuring models work well and stay accurate over time.
+- MLOps (Machine Learning Operations) is a practice that combines machine learning with DevOps principles to automate and streamline the process of developing, deploying, and managing machine learning models in production.
+- MLOps ensures that a model can automatically retrain itself when performance degrades or when new data is available, without requiring manual intervention.  This allows the model to stay up-to-date and accurate as conditions change, reducing the need for constant human oversight.
+
+__Degree of MLOps Automation in ML project lifecycle:__
+- ___Low degree of MLOps:___ Manual intervention is needed for retraining, monitoring, and deployment.
+- ___Medium degree of MLOps:___ Some processes are automated, like monitoring and triggering retraining, but humans still need to make final decisions.
+- ___High degree of MLOps:___ Almost everything is automated, including data collection, model retraining, deployment, and monitoring, with minimal human involvement.
 
 ## Machine learning pipeline:
 - An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine-learning process more efficient and scalable.
