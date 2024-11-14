@@ -84,8 +84,8 @@ __DAG (Directed Acyclic Graph):__
   
   ![image](https://github.com/user-attachments/assets/35b9ff9a-1a8a-49a2-9eb4-585df266edc5)
 
-__TFX production key components:__
-- The TFX production components are built on top of various open-source libraries, including TensorFlow for data ingestion, TensorFlow Data Validation, TensorFlow Transform, TensorFlow Estimators or Keras models, TensorFlow Model Analysis, TensorFlow Data Validation Outcomes, and TensorFlow Serving.
+__TFX production components:__
+- The TFX production components are built on top of various open-source libraries, including TensorFlow Data Validation, TensorFlow Transform, TensorFlow Model Analysis, TensorFlow Data Validation Outcomes, and TensorFlow Serving.
 - ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 - ___Data analysis or data validation:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
 - ___Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
@@ -93,6 +93,8 @@ __TFX production key components:__
 - ___Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
 - ___Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
 - ___Deployment:___ "Pusher" deploys the model to production environments.
+
+> Installing libraries:
 
 ```python
 # Install TFX and related libraries using pip
