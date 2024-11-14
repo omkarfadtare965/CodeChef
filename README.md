@@ -58,7 +58,7 @@ __Challenges in deploying machine learning models:__
    - Logging (to track the behaviour and performance of a deployed machine learning model)
    - Security and privacy, when dealing with sensitive data.
 
-## MlOps (Machine learning Operations):
+# MlOps (Machine learning Operations) Introduction:
 - MLOps (Machine Learning Operations) is a practice that combines machine learning with DevOps principles to automate and streamline the process of developing, deploying, and managing machine learning models in production.
 - MLOps ensures that a model can automatically retrain itself when performance degrades or when new data is available, without requiring manual intervention.  This allows the model to stay up-to-date and accurate as conditions change, reducing the need for constant human oversight.
 
@@ -72,14 +72,19 @@ __Degree of MLOps Automation in ML project lifecycle:__
 
   ![image](https://github.com/user-attachments/assets/5fa9de7a-a4e1-4268-9669-68f25eb10010)
 
+- An ML pipeline can vary from project to project depending on the specific requirements, such as the type of data, model, and deployment needs. However, most ML pipelines are structured as Directed Acyclic Graphs (DAGs), meaning the steps in the pipeline are arranged in a directed order, with no cycles, ensuring that each step is executed in sequence without any loops.
+- This structure helps maintain a clear flow of data and processing tasks, making it easier to automate, monitor, and debug the pipeline.
 
 __DAG (Directed Acyclic Graph):__
-- DAG is a powerful tool for structuring the ML pipeline.
-- Directed meaning the connections between nodes have a direction, indicating a one-way relationship from one node to another.
-- Acyclic meaning you cannot start at one node and follow the directed edges to return to the same node.
-- Graph meaning a collection of nodes connected by edges.
+- DAG stands for Directed Acyclic Graph, where ___'Directed'___ indicates a one-way relationship between nodes, ___'Acyclic'___ means you cannot start at one node and follow the directed edges to return to the same node, and ___'Graph'___ refers to the collection of nodes (tasks) that are connected by edges, representing the flow of data or execution in a way that reflects their relationships and dependencies.
+- Orchestrator tools are used for executing nodes or tasks in the correct order based on their dependencies in a pipeline. These tools automate the scheduling, execution, and management of tasks to ensure that each task is performed in sequence, according to the dependencies defined within the pipeline.
 
-__DAG key components as Nodes:__
+### TFX (TensorFlow Extended)
+- TFX is a widely used open-source framework for creating an end-to-end ml pipeline.
+  
+  ![image](https://github.com/user-attachments/assets/35b9ff9a-1a8a-49a2-9eb4-585df266edc5)
+  
+__TFX production key components:__
 - ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 - ___Data analysis or data validation:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
 - ___Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
@@ -95,6 +100,8 @@ __TFX (Tensorflow Extended):__
   - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
   - ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
   - ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
+
+  
 
   ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
 
@@ -160,12 +167,11 @@ def run_tft_pipeline(raw_data):
 - ___Edge device:___ An edge device is a piece of hardware that processes data locally, closer to where it is generated, rather than sending it to a centralized server or cloud. It can perform tasks like collecting data, running AI models, or controlling systems, and it is often used in IoT, manufacturing, and automation.
 - ___Data-centric approach:___ Data-centric approach focuses on improving the quality and quantity of the data used to train models.
 - ___Model-centric approach:___ Model-centric approach focuses on improving the algorithms or model parameters regardless of data.
-- ___MlOps:___ MlOps (Machine Learning Operations) is a way to manage and deploy machine learning models quickly and efficiently into production. 
 - ___Real-time predictions:___ It involves making predictions instantly as new data comes in.
 - ___Batch predictions:___ It involves making predictions on a group of data at once, rather than one at a time.
-- ___Metadata:___ Metadata(data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
-- ___Orchestration:___ Orchestrationin simple terms means organizing and coordinating different tasks or components so they work together smoothly.
-- ___Orchestrator:___ Orchestrator is a tool that manages and schedules these tasks, ensuring they run in the correct order based on their dependencies.
+- ___Metadata:___ Metadata (data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
+- ___Orchestration:___ Orchestration refers to the execution and coordination of tasks within an ML pipeline, ensuring that each task is executed in the correct order based on its dependencies.
+- ___Orchestrator:___ Orchestrator is a tool or system that automates and manages this process of orchestration, ensuring that the tasks are scheduled, executed, and monitored efficiently.
 - ___DAG (Directed Acyclic Graph):___ DAG is a powerful tool for defining ML pipelines
 - ___Model (performance) decay:___ Model performance decay refers to the gradual decline in the accuracy or effectiveness of a machine learning model over time.
 
@@ -176,7 +182,7 @@ def run_tft_pipeline(raw_data):
 - TFDV
 - TensorFlow Transform
 - Apache Beam / Airflow
-- TFX 
+- TFX (widely used open source framework for creating an end to end ml pipeline)
 - Weights and Biases
 - Comet
 - Prefect
@@ -193,7 +199,7 @@ def run_tft_pipeline(raw_data):
 ## Tools: 
 - ___Experiment tracking tools:___ Experiment tracking tools, such as text files, shared spreadsheets, or specialized platforms like Weights and Biases, Comet, MLflow, and SageMaker Studio, help in organizing and tracking machine learning experiments like algorithm and code version, dataset used, hyperparameters, performance metrics(accuracy, precision, recall, f1 score).
 - ___Data pipeline tools:___ Data pipeline tools like TensorFlow Transform, Apache Beam, or Airflow can be used to automate and manage the data pipeline. These tools ensure that the same data processing methods are applied as new data flows in, helping to maintain accuracy and reduce errors.
-- ___Orchestrator tools:___ Orchestration tools(orchestrator) like Celery, Argo, Airflow, Kubeflow, and Luigi can be used to schedule tasks, ensuring they run in the correct order based on their dependencies
+- ___Orchestrator tools:___ Celery, Argo, Airflow, Kubeflow, Luigi
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
 
