@@ -99,8 +99,11 @@ __TFX production components or TFX "Hello World":__
   - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
   - ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
   - ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
-
 - The TFX production components are built on top of various open-source libraries, including TensorFlow Data Validation, TensorFlow Transform, TensorFlow Model Analysis, TensorFlow Data Validation Outcomes, and TensorFlow Serving.
+
+  ![image](https://github.com/user-attachments/assets/bffe0011-cae9-4e73-b84b-23d88c50a467)
+
+  ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
 
 > ___Installing libraries:___
 ```python
@@ -123,9 +126,11 @@ pip install tensorflow-model-analysis
 pip install tensorflow-serving-api
 ```
  
-  ![image](https://github.com/user-attachments/assets/bffe0011-cae9-4e73-b84b-23d88c50a467)
 
-  ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
+
+
+
+
 
 __Data pipeline:__ 
 - A data pipeline refers to the series of steps involved in processing data during both the development and production phases to produce the final output. Ensuring replicability in a data pipeline is key to maintaining consistency in machine learning models across different environments, such as development, testing, and production. 
