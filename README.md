@@ -5,7 +5,7 @@
 
   ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
-__Machine learning Project lifecycle__
+__Machine learning Production Project lifecycle:__
 - ___Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
 - ___Data:___ In this phase, you collect and organize data, define data sources, establish baselines, and label the data.
 - ___Modeling:___ In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
