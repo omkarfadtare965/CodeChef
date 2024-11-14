@@ -9,7 +9,7 @@ __Machine learning Project lifecycle__
 - ___Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
 - ___Data:___ In this phase, you collect and organize data, define data sources, establish baselines, and label the data.
 - ___Modeling:___ In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
-- ___Deployment:___ In this phase, you deploy the model into production which also includes monitoring the system, and tracking the incoming data.
+- ___Deployment:___ In this phase, the model is deployed into production (e.g., cloud, edge, IoT, web browser) to serve prediction requests. This phase also includes monitoring the system and tracking incoming data.
 - ___Maintenance:___ After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
   ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
@@ -186,6 +186,8 @@ def run_tft_pipeline(raw_data):
 - ___Orchestrator tools:___ Orchestration tools(orchestrator) like Celery, Argo, Airflow, Kubeflow, and Luigi can be used to schedule tasks, ensuring they run in the correct order based on their dependencies
 
 ![image](https://github.com/user-attachments/assets/e287eafe-d487-4dd2-9ff4-727aeeae81da)
+
+![image](https://github.com/user-attachments/assets/c3e03585-80ef-40ca-9507-84db1f2ca1ca)
 
 ![image](https://github.com/user-attachments/assets/1974eaa3-e959-4272-b126-ebaf8dce3699)
 
