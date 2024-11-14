@@ -68,7 +68,7 @@ __Degree of MLOps Automation in ML project lifecycle:__
 - ___High degree of MLOps:___ Almost everything is automated, including data collection, model retraining, deployment, and monitoring, with minimal human involvement.
 
 ## Machine learning pipeline:
-- An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically include stages like data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in order and can be repeated reliably, making the entire machine-learning process more efficient and scalable.
+- An ML (Machine Learning) pipeline is a step-by-step process that automates the flow of data through a machine learning model. It typically includes stages such as data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in the correct order and can be reliably repeated, making the entire machine-learning process more efficient and scalable.
 
 __DAG (Directed Acyclic Graph):__
 - DAG is a powerful tool for structuring the ML pipeline.
