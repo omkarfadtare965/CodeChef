@@ -21,9 +21,9 @@ __Challenges in deploying machine learning models:__
 - ___Software engine issues:___
    - Whether you need real-time predictions or batch predictions?
    - Whether your prediction service runs in the cloud, or on edge devices?
-   - How many compute resources do you have(CPU/GPU)?
-   - Considerations for latency, throughput(queries per second)
-   - Logging(to track the behaviour and performance of a deployed machine learning model)
+   - How many compute resources do you have (CPU/GPU)?
+   - Considerations for latency, throughput (queries per second)
+   - Logging (to track the behaviour and performance of a deployed machine learning model)
    - Security and privacy, when dealing with sensitive data.
 
 __Deployment patterns:__
