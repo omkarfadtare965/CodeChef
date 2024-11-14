@@ -80,11 +80,12 @@ __DAG (Directed Acyclic Graph):__
 - Orchestrator tools are used for executing nodes or tasks in the correct order based on their dependencies in a pipeline. These tools automate the scheduling, execution, and management of tasks to ensure that each task is performed in sequence, according to the dependencies defined within the pipeline.
 
 ### TFX (TensorFlow Extended)
-- TFX is a widely used open-source framework for creating an end-to-end ml pipeline.
+- TFX is a widely used open-source framework for creating end-to-end machine learning pipelines.
   
   ![image](https://github.com/user-attachments/assets/35b9ff9a-1a8a-49a2-9eb4-585df266edc5)
-  
+
 __TFX production key components:__
+- The TFX production components are built on top of various open-source libraries, including TensorFlow for data ingestion, TensorFlow Data Validation, TensorFlow Transform, TensorFlow Estimators or Keras models, TensorFlow Model Analysis, TensorFlow Data Validation Outcomes, and TensorFlow Serving.
 - ___Data ingestion:___ "ExampleGen" ingests raw data from various sources, such as databases, cloud storage, or local files into the pipeline.
 - ___Data analysis or data validation:___ "StatisticsGen" analyzes the data and generates statistical summaries of the data such as types of features, ranges of numerical features, etc. "SchemaGen" defines the expected structure of the data, including data types, feature constraints, and relationships between features.
 - ___Data transformation:___ "Transform" performs feature engineering(applies transformations to the raw data to create meaningful features for model training) and data preprocessing(categorical encoding, feature scaling, etc.).
@@ -92,6 +93,31 @@ __TFX production key components:__
 - ___Model evaluation:___ "Evaluator" assesses the model’s various performance metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and comparison against baseline models
 - ___Infrastructure validation:___ "InfraValidator" verifies that the infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model to prevent deployment failures.
 - ___Deployment:___ "Pusher" deploys the model to production environments.
+
+```python
+# Install TFX and related libraries using pip
+pip install tfx
+
+# For TensorFlow Estimators and Keras models
+pip install tensorflow
+
+# TensorFlow Data Validation (TFDV)
+pip install tensorflow-data-validation
+
+# TensorFlow Transform (TFT)
+pip install tensorflow-transform
+
+# TensorFlow Model Analysis (TFMA)
+pip install tensorflow-model-analysis
+
+# TensorFlow Serving (for model serving, often handled separately, but install the TensorFlow Serving Python client)
+pip install tensorflow-serving-api
+```
+ 
+  ![image](https://github.com/user-attachments/assets/bffe0011-cae9-4e73-b84b-23d88c50a467)
+
+  ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
+  
 
 __TFX (Tensorflow Extended):__
 - The TFX framework utilizes DAG to define the ML pipeline components and their dependencies.
@@ -105,7 +131,7 @@ __TFX (Tensorflow Extended):__
 
   ![image](https://github.com/user-attachments/assets/4fe2b27a-5147-4d3a-ae32-d5c8c2366dee)
 
-  ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
+  
 
 __Data pipeline:__ 
 - A data pipeline refers to the series of steps involved in processing data during both the development and production phases to produce the final output. Ensuring replicability in a data pipeline is key to maintaining consistency in machine learning models across different environments, such as development, testing, and production. 
