@@ -3,7 +3,7 @@
 
   ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
-__Degree of automation in decision-making using AI and Machine learning:__
+__Degree of automation in decision-making using AI & Machine learning:__
 - ___Human only:___ No automation is involved; all decisions are made entirely by humans.
 - ___Shadow automation:___ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
 - ___AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
