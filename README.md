@@ -15,11 +15,16 @@ __Degree of automation in decision-making using AI & Machine learning:__
   ![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
 
 __Machine learning Production Project lifecycle:__
-- ___1) Scoping:___ In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
-- ___2) Data:___ In this phase, you collect and organize data, define data sources, establish baselines, and label the data.
-- ___3) Modeling:___ In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
-- ___4) Deployment & Monitoring:___ In this phase, the model is deployed into production (e.g., cloud, edge, IoT, web browser) to serve prediction requests. This phase also includes monitoring the system and tracking incoming data.
-- ___5) Maintenance:___ After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
+- ___Scoping:___
+  - In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
+- ___Data:___
+  - In this phase, you collect and organize data, define data sources, establish baselines, and label the data. 
+- ___Modeling:___
+  - In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
+- ___Deployment & Monitoring:___
+  - In this phase, the model is deployed into production (e.g., cloud, edge, IoT, web browser) to serve prediction requests. This phase also includes monitoring the system and tracking incoming data.
+- ___Maintenance:___
+  - After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
   ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
@@ -77,7 +82,7 @@ __Degree of MLOps Automation in ML project lifecycle:__
 
 __DAG (Directed Acyclic Graph):__
 - DAG stands for Directed Acyclic Graph, where ___'Directed'___ indicates a one-way relationship between nodes, ___'Acyclic'___ means you cannot start at one node and follow the directed edges to return to the same node, and ___'Graph'___ refers to the collection of nodes (tasks) that are connected by edges, representing the flow of data or execution in a way that reflects their relationships and dependencies.
-- Orchestrator tools are used for executing nodes or tasks in the correct order based on their dependencies in a pipeline. These tools automate the scheduling, execution, and management of tasks to ensure that each task is performed in sequence, according to the dependencies defined within the pipeline.
+- Orchestrator tools are used to execute nodes or tasks in the correct order based on their dependencies in a pipeline. These tools automate the scheduling, execution, and management of tasks to ensure that each task is performed in sequence, according to the dependencies defined within the pipeline.
 
 ### TFX (TensorFlow Extended)
 - TFX is a widely used open-source framework for creating end-to-end machine learning pipelines.
@@ -125,11 +130,101 @@ pip install tensorflow-model-analysis
 # TensorFlow Serving (for model serving, often handled separately, but install the TensorFlow Serving Python client)
 pip install tensorflow-serving-api
 ```
+__Ensuring Data Quality in Machine Learning Pipeline:__
+- 
+
+
+## Scrap:
+- In an ML pipeline, we use a data pipeline comprising a sequence of automated tasks. These processes include data collection, data ingestion, data validation, and data preparation. Additionally, it is essential to monitor the data collection process.
+- You need to ensure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production. It's important to maintain good data quality not just at the beginning but throughout the application's lifecycle. This involves sourcing data responsibly and addressing concerns related to bias and fairness.
+
+Questions to ask before working on a new project:
+- What type of data do you need, and how much of it is required?
+- How often will you need new data, and when do you expect changes in the data?
+- Is the data labelled or annotated? If not, what methods can be used to label it?
+- What are the predictive features?
+- What are the labels?
+- What are the metrics used to evaluate the model?
+
+Dataset issues:
+- Inconsistent formatting
+- Bias and fairness concerns
+- Monitoring data sources for system issues and outages
+
+Data privacy involves the proper usage, collection, retention, deletion, and storage of data.
+How you handle data privacy and security depends on the nature of the data, operating conditions, regulations, and policies.
+
+Sudden Changes:
+- Faulty sensors or cameras
+- Corrupted log data
+- Moved or disabled sensors/cameras
+- System Problems:
+
+Faulty software updates
+- Loss of network connectivity
+- System outages
+- Invalid or incorrect credentials
+
+Detecting Problems with Deployed Models:
+- Data and concept drift: Changes in the input data distribution or the relationship between features and target variables.
+- Changing ground truth: Evolving definitions or changes in the true labels over time.
+- Model performance decay: Model accuracy decreases over time due to data drift or concept drift.
+- Model retraining: Retraining the model can help improve performance and adapt to new data patterns.
+- Feedback and Labeling Processes:
+
+Collect feedback through direct labelling, human labelling, semi-supervised learning, or active learning to enhance the model's performance.
+
+
+
+
+
+
+## Data collection:
+![image](https://github.com/user-attachments/assets/26fa7ddd-f666-4e40-ae5e-1d7723d9c5f2)
+
+
+
+
+
+## Validatin and detecting data issues:
+- Drift refers to the changes in data over time
+- Skew refres to the differences between two static versions or different sources such as trining set and serving set (Data that you are getting for prediction request)
+- 
+
+
+seasanality and trend or unexpected events
+
+Schema skew
+training and serving data do not confront to the same schema
+Distribution skew:
+manifested with VAriate and covariatte shift
+
+skew detection involves continuous evaluation of data coming to your server once you train your model so to detect these kinda changes you need Continuous monitorin and evaluation of the data 
+
+dataset shift: when the the joint probabilty of input features x and labels y is not same duing trainning and serving
+covariate shift referes to the change in the distribution of input variables present in training and serving data 
+Concept shift refers to the relationship dbetween input and output variabes as opposed to the difference in 
+
+## Workflow to detetct data skew:
+- FIsr stage is looking a the training data nd computing baseline satatistics and a referance schema then you do bascially the same with your serving data you are going to generate the descriptive statistics and then yoou compare the two. SO you compare the baseline stat and instances check differences between serving and traing data and you look for skew and drift. Significant change can be anamolies and can then trigger an alert and then this trigger will goes into monitoring system that can either be a human and another system to analyze the change and decide a proper course of action 
+
+![image](https://github.com/user-attachments/assets/9c5c5070-962c-46f0-8c5d-45c9d543c4ea)
+
+TFDV helps developers understand validate and monitor their ml data at scale. TFDV generates data statistics and browser visualization also helps infers the schema for your data performs validity checks against schema also detects training serving skew by validating against the reference schema that you generated from training data 
+- Using TFDV you can detect three different types of skew Schema skew feature skew distribution skew
+skew for categorical eatures is expressed in chebyshev's distance.  you can set threshold values SO that you can receive warnings when drift is higher than what you think is acceptable  
+- Schema skew occurs when the serving and training data dont confront to the same schema. Feature skew happens when feature values are different that the serving feature values. Distribution skew is of distribution of serving and training dataset significantly different
+- 
+
  
+![image](https://github.com/user-attachments/assets/8b5217c6-764e-4a78-9601-298410415c51)
 
+__Data Ingestion:__
+- Data ingestion is the process of bringing data from various sources, such as databases, files, or websites, into a system where it can be used. Think of it like gathering ingredients in your kitchen before cooking a meal.
+- 
 
-
-
+__Data validation:__
+- 
 
 
 __Data pipeline:__ 
@@ -151,6 +246,9 @@ __Types of Data issues:__
 - ___Concept drift:___ Concept drift occurs when the relationship between the input features and the target feature changes. For example, A model was trained to flag spam emails based on certain keywords, but now spammers use new words, so the model doesn’t work as well.
 - ___Schema skew:___ Schema skew occurs when the types of data change between training and serving. For example, The model was trained with age as a whole number, but now it’s receiving age as a decimal, causing errors.
 - ___Distribution skew:___ Distribution skew occurs when the spread or range of feature values is different between training and serving. For example, A weather prediction model trained with temperatures ranging from 0-100°F now sees temperatures from -50°F to 150°F, which it wasn’t prepared for.
+
+![image](https://github.com/user-attachments/assets/2d26a1ec-836d-426a-ab0a-2a0d280bb33e)
+
 
 __Data Transform:__
 - Inconsistent data (e.g., data that isn’t scaled) and different feature engineering approaches can negatively impact model performance. This is why scalable data processing tools are important for handling large datasets efficiently.
@@ -199,7 +297,9 @@ def run_tft_pipeline(raw_data):
 - ___Orchestrator:___ Orchestrator is a tool or system that automates and manages this process of orchestration, ensuring that the tasks are scheduled, executed, and monitored efficiently.
 - ___DAG (Directed Acyclic Graph):___ DAG is a powerful tool for defining ML pipelines
 - ___Model (performance) decay:___ Model performance decay refers to the gradual decline in the accuracy or effectiveness of a machine learning model over time.
-
+- ___Data ingestion:___
+- ___Data validation:___
+ 
 ## Libraries:
 - Tensorflow
 - Keras
