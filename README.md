@@ -9,7 +9,7 @@ __Degree of automation in decision-making using AI & Machine learning:__
 - ___AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
 - ___Partial automation:___ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
 - ___Full automation:___ The learning algorithm handles every decision without human intervention.
-- In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the use-case. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
+- In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the use case. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
   ![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
@@ -281,6 +281,25 @@ def run_tft_pipeline(raw_data):
         )
         transformed_data | 'WriteData' >> beam.io.WriteToText('output.txt')  # Write transformed data
 ```
+```python
+def preprocessing_fn(inputs):
+    ...
+for key in DENSE_FLOAT_FEATURE_KEYS:
+    output[key] = tft.scale_to_z_score(inputs[key])
+    
+for key in VOCAB_FEATURE_KEYS:
+    output[key] = tft.vocabulary(inputs[key], vocab_filename=key)
+    
+for key in BUCKET_FEATURE_KEYS:
+    output[key] = tft.bucketsize(inputs[key], FEATURE_BUCKET_COUNT)
+
+import tensorflow as tf
+import apache_beam as beam
+import apache_beam.io.iobase
+import tensorflow_transform as tft
+import tensorflow_transform.beam as tft_beam
+
+```
 
 ## Important terminology:
 - ___Data drift:___ Data drift occurs when the distribution of data changes over time, leading to a decline in model performance. This happens when the data used for predictions differs from the data the model was originally trained on.
@@ -374,4 +393,38 @@ Data artefacts are created as pipeline components execute. Each time a component
 ### Environment versioning: Docker, Terraform
 ### Code versioning: Github
 ### 
-- Tracking different data versions. Managing a data pipeline is a big challenge as data evolves through the natural life cycle of a project over many different training runs amachine learning when its done properly 
+- Tracking different data versions. Managing a data pipeline is a big challenge as data evolves through the natural life cycle of a project over many different training runs amachine learning when its done properly
+
+
+
+
+
+
+
+
+
+# Course 2 (week 2)
+## Feature engineering, Transformation & Selection:
+- Feature engineering tries to improve models's ability to learn while reducing the compute resources it requires. Feature engineering involves transforming eliminating, projecting and or combining features in your raw data to form a new version of your dataset.
+- Make sure that you apply the same feature engineering during serving as you applied during training. that is use the same std deviation.
+
+![image](https://github.com/user-attachments/assets/a3f71507-c9d1-4dc6-b562-6e30c575f7ce)
+
+## Preprocessing:
+- Data cleansing
+- Feature tuning (apply transformations, scaling, normalising)
+- Dimensionality reduction
+- Feature construction
+- Categorical encoding
+
+## Tensorflow Transform:
+- To perform pre-processing at scale use TensorFlow transform
+- tf.Transform analyzers:
+- It takes training data and processes it and the end result is deployed into the serving system
+
+![image](https://github.com/user-attachments/assets/84c8bb0e-b710-4192-8bb7-5fa8825bcb1f)
+![image](https://github.com/user-attachments/assets/a862387a-e495-476c-837a-c7690546dac6)
+![image](https://github.com/user-attachments/assets/d6de6af8-bca5-4861-856f-930307392ab8)
+![image](https://github.com/user-attachments/assets/38c68dd9-7cbb-4bb7-a6c5-4242097f8059)
+![image](https://github.com/user-attachments/assets/46e6cbf6-200e-4f10-849e-b14d1021d66a)
+
