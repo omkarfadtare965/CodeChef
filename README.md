@@ -4,60 +4,60 @@
 
   ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
-__Degree of automation in decision-making using AI & Machine learning:__
-- ___Human only:___ No automation is involved; all decisions are made entirely by humans.
-- ___Shadow automation:___ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
-- ___AI Assistance:___ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
-- ___Partial automation:___ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
-- ___Full automation:___ The learning algorithm handles every decision without human intervention.
+### Degree of automation in decision-making using AI & Machine learning:
+- __Human only:__ No automation is involved; all decisions are made entirely by humans.
+- __Shadow automation:__ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
+- __AI Assistance:__ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
+- __Partial automation:__ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
+- __Full automation:__ The learning algorithm handles every decision without human intervention.
 - In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the use case. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
   ![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
 
-__Machine learning Production Project lifecycle:__
-- ___Scoping:___
+### Machine learning Production Project lifecycle:
+- __Scoping:__
   - In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
-- ___Data:___
+- __Data:__
   - In this phase, you collect and organize data, define data sources, establish baselines, and label the data. 
-- ___Modeling:___
+- __Modeling:__
   - In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
-- ___Deployment & Monitoring:___
+- __Deployment & Monitoring:__
   - In this phase, the model is deployed into production (e.g., cloud, edge, IoT, web browser) to serve prediction requests. This phase also includes monitoring the system and tracking incoming data.
-- ___Maintenance:___
+- __Maintenance:__
   - After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
   ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
 
-__Deployment patterns:__
-- ___New product:___ When launching a new product that hasn’t been offered before, a common pattern is to direct a small portion of traffic to the model, and then gradually increase it as confidence grows. This reduces the risk of impacting a large number of users with an untested system.
+### Deployment patterns:
+- __New product:__ When launching a new product that hasn’t been offered before, a common pattern is to direct a small portion of traffic to the model, and then gradually increase it as confidence grows. This reduces the risk of impacting a large number of users with an untested system.
 - For example, a company releases a new recommendation system. Initially, only 5% of users got recommendations from the new system. As the system proves reliable, traffic is gradually increased until all users are served by it.
-- ___Automate or Assist manual tasks:___ This pattern is useful when replacing or supporting a manual process with an algorithm. For example, if factory workers inspect smartphones for scratches, and you want to use machine learning to assist or replace human inspectors.
-  - ___Shadow deployment:___ The machine learning algorithm "shadows" the human worker by running in parallel but doesn’t make any actual decisions. The output from the algorithm is compared with the human’s decisions to evaluate its performance.
+- __Automate or Assist manual tasks:__ This pattern is useful when replacing or supporting a manual process with an algorithm. For example, if factory workers inspect smartphones for scratches, and you want to use machine learning to assist or replace human inspectors.
+  - __Shadow deployment:__ The machine learning algorithm "shadows" the human worker by running in parallel but doesn’t make any actual decisions. The output from the algorithm is compared with the human’s decisions to evaluate its performance.
   - For example, a factory inspector and an algorithm both check for scratches on phones, but only the human inspector's decision matters at first. Over time, the algorithm's performance is analyzed before it’s allowed to make real decisions.
-  - ___Canary deployment:___ Once confident, you can let the algorithm start making decisions with a small percentage of traffic (e.g., 5%). This way, mistakes will only impact a small part of the system. As the model performs well, the traffic can be gradually increased.
+  - __Canary deployment:__ Once confident, you can let the algorithm start making decisions with a small percentage of traffic (e.g., 5%). This way, mistakes will only impact a small part of the system. As the model performs well, the traffic can be gradually increased.
   - For example, the algorithm starts inspecting only 5% of phones. If it performs well, this is increased to 50%, and eventually, all phones are inspected by the algorithm.
-- ___Replacing a previous machine learning system:___ When replacing an older machine learning system with a newer one, it’s common to gradually direct traffic to the new system while monitoring its performance.
-  - ___Blue-Green deployment:___ This involves running two versions of a system: an old version (Blue) and a new version (Green). At deployment, traffic is switched entirely from Blue to Green. If there’s an issue with the new system, you can quickly revert traffic back to the Blue version, ensuring minimal disruption.
+- __Replacing a previous machine learning system:__ When replacing an older machine learning system with a newer one, it’s common to gradually direct traffic to the new system while monitoring its performance.
+  - __Blue-Green deployment:__ This involves running two versions of a system: an old version (Blue) and a new version (Green). At deployment, traffic is switched entirely from Blue to Green. If there’s an issue with the new system, you can quickly revert traffic back to the Blue version, ensuring minimal disruption.
 
 __Monitoring deployed machine learning systems:__
 - The most common way to monitor a machine learning (ML) system is by using a dashboard that tracks its performance over time. Depending on your application, the dashboard may monitor different metrics, such as server load, non-null outputs (where the ML system fails to return an output), and missing input values (which can indicate that something in the input data has changed).
 - The metrics used are decided by discussing potential issues that could arise in the system. A good practice is to start with a lot of metrics and gradually remove those that are not useful.
-  - ___Software metrics:___ includes memory usage, compute latency, throughput, and server load metrics
-  - ___Input and output metrics:___ includes metrics to track performance of the ML model
+  - __Software metrics:__ includes memory usage, compute latency, throughput, and server load metrics
+  - __Input and output metrics:__ includes metrics to track performance of the ML model
 - Machine learning modelling and deployment are both highly iterative processes. Once your initial deployment is running, you can set up monitoring dashboards and thresholds to track the model's performance on real traffic and trigger alarms. Based on the metrics, you may need to update your deployment.
 - When a model needs updating, there are two main approaches:
-  - ___Manual retraining:___ In manual retraining, an engineer may retrain the model, perform error analysis on the new model, and deploy the updated version.
-  - ___Automatic retraining (MLops):___ In automatic retraining, the retraining process occurs automatically. Based on predefined rules or performance metrics, the new updated version of the model is deployed without manual intervention.
+  - __Manual retraining:__ In manual retraining, an engineer may retrain the model, perform error analysis on the new model, and deploy the updated version.
+  - __Automatic retraining (MLops):__ In automatic retraining, the retraining process occurs automatically. Based on predefined rules or performance metrics, the new updated version of the model is deployed without manual intervention.
   
     ![image](https://github.com/user-attachments/assets/36140dcf-7597-4223-975d-e918e967ae23)
 
-__Challenges in deploying machine learning models:__
-- ___Machine learning or Statistical issues:___
+### Challenges in deploying machine learning models:
+- __Machine learning or Statistical issues:__
   - Concept drift
   - Data drift
   - Model performance decay
-- ___Software engine issues:___
+- __Software engine issues:__
    - Whether you need real-time predictions or batch predictions?
    - Whether your prediction service runs in the cloud, or on edge devices?
    - How many compute resources do you have (CPU/GPU)?
@@ -65,16 +65,16 @@ __Challenges in deploying machine learning models:__
    - Logging (to track the behaviour and performance of a deployed machine learning model)
    - Security and privacy, when dealing with sensitive data.
 
-# MlOps (Machine learning Operations) Introduction:
+## MlOps (Machine learning Operations) Introduction:
 - MLOps (Machine Learning Operations) is a practice that combines machine learning with DevOps principles to automate and streamline the process of developing, deploying, and managing machine learning models in production.
 - MLOps ensures that a model can automatically retrain itself when performance degrades or when new data is available, without requiring manual intervention.  This allows the model to stay up-to-date and accurate as conditions change, reducing the need for constant human oversight.
 
 __Degree of MLOps Automation in ML project lifecycle:__
-- ___Low degree of MLOps:___ Manual intervention is needed for retraining, monitoring, and deployment.
-- ___Medium degree of MLOps:___ Some processes are automated, like monitoring and triggering retraining, but humans still need to make final decisions.
-- ___High degree of MLOps:___ Almost everything is automated, including data collection, model retraining, deployment, and monitoring, with minimal human involvement.
+- __Low degree of MLOps:__ Manual intervention is needed for retraining, monitoring, and deployment.
+- __Medium degree of MLOps:__ Some processes are automated, like monitoring and triggering retraining, but humans still need to make final decisions.
+- __High degree of MLOps:__ Almost everything is automated, including data collection, model retraining, deployment, and monitoring, with minimal human involvement.
 
-## Machine learning pipeline:
+### Machine learning pipeline:
 - An ML (Machine Learning) pipeline is a step-by-step process or a software architecture that automates the flow of data through a machine learning model. It typically includes stages such as data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in the correct order and can be reliably repeated, making the entire machine-learning process more efficient and scalable.
 
   ![image](https://github.com/user-attachments/assets/5fa9de7a-a4e1-4268-9669-68f25eb10010)
@@ -92,27 +92,27 @@ __DAG (Directed Acyclic Graph):__
   ![image](https://github.com/user-attachments/assets/35b9ff9a-1a8a-49a2-9eb4-585df266edc5)
 
 __TFX production components or TFX "Hello World":__
-- ___ExampleGen:___ Ingests raw data from various sources, such as databases, cloud storage, or local files, into the pipeline.
-- ___StatisticsGen:___ Analyzes the ingested data and generates statistical summaries, such as types of features, ranges of numerical features, and distributions.
-- ___ExampleValidator:___ Detects issues with the data, such as missing values or anomalies, and helps validate the quality of the input data before further processing.
-- ___SchemaGen:___ Defines the expected structure of the data, including data types, feature constraints, and relationships between features.
-- ___Transform:___ Performs feature engineering by applying transformations to the raw data, creating meaningful features that are more suitable for model training.
-- ___Tuner:___ Optimizes the model's hyperparameters to enhance performance by performing automated hyperparameter tuning.
-- ___Trainer:___ Builds and trains the machine learning model using the transformed data, typically utilizing TensorFlow Estimators or Keras models.
-- ___Evaluator:___ Assesses the model's performance using various metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and compares the trained model against baseline models.
-- ___InfraValidator:___ Verifies that the deployment infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model. It helps to prevent deployment failures.
-- ___Pusher:___ Deploys the model to production environments, making it available for serving predictions.
-  - ___TensorFlow Hub:___ for transfer learning and generating embeddings.
-  - ___TensorFlow.js:___ to use the model in web browsers or Node.js applications.
-  - ___TensorFlow Lite:___ for deployment on mobile devices or IoT devices.
-  - ___TensorFlow Serving:___ for serving the model on servers or serving clusters.
+- __ExampleGen:__ Ingests raw data from various sources, such as databases, cloud storage, or local files, into the pipeline.
+- __StatisticsGen:__ Analyzes the ingested data and generates statistical summaries, such as types of features, ranges of numerical features, and distributions.
+- __ExampleValidator:__ Detects issues with the data, such as missing values or anomalies, and helps validate the quality of the input data before further processing.
+- __SchemaGen:__ Defines the expected structure of the data, including data types, feature constraints, and relationships between features.
+- __Transform:__ Performs feature engineering by applying transformations to the raw data, creating meaningful features that are more suitable for model training.
+- __Tuner:__ Optimizes the model's hyperparameters to enhance performance by performing automated hyperparameter tuning.
+- __Trainer:__ Builds and trains the machine learning model using the transformed data, typically utilizing TensorFlow Estimators or Keras models.
+- __Evaluator:__ Assesses the model's performance using various metrics, such as accuracy, precision, recall, F1 score, and others. It also performs model validation and compares the trained model against baseline models.
+- __InfraValidator:__ Verifies that the deployment infrastructure has sufficient resources (e.g., memory, processing power) to run predictions using the trained model. It helps to prevent deployment failures.
+- __Pusher:__ Deploys the model to production environments, making it available for serving predictions.
+  - __TensorFlow Hub:__ for transfer learning and generating embeddings.
+  - __TensorFlow.js:__ to use the model in web browsers or Node.js applications.
+  - __TensorFlow Lite:__ for deployment on mobile devices or IoT devices.
+  - __TensorFlow Serving:__ for serving the model on servers or serving clusters.
 - The TFX production components are built on top of various open-source libraries, including TensorFlow Data Validation, TensorFlow Transform, TensorFlow Model Analysis, TensorFlow Data Validation Outcomes, and TensorFlow Serving.
 
   ![image](https://github.com/user-attachments/assets/bffe0011-cae9-4e73-b84b-23d88c50a467)
 
   ![image](https://github.com/user-attachments/assets/759ad55c-4dbe-45b2-82e4-cc581b271be6)
 
-> ___Installing libraries:___
+> __Installing libraries:__
 ```python
 # Install TFX
 pip install tfx
@@ -132,6 +132,8 @@ pip install tensorflow-model-analysis
 # TensorFlow Serving (for model serving, often handled separately, but install the TensorFlow Serving Python client)
 pip install tensorflow-serving-api
 ```
+
+# Course (2)
 __Ensuring Data Quality in Machine Learning Pipeline:__
 - To ensure data quality in the machine learning pipeline you need to make sure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production.
 - Questions to ask before working on a new project:
@@ -142,7 +144,7 @@ __Ensuring Data Quality in Machine Learning Pipeline:__
   - What metrics can be used to evaluate the model?
   - How do you handle data privacy and security? 
 
-## Data collection:
+### Data collection:
 ![image](https://github.com/user-attachments/assets/26fa7ddd-f666-4e40-ae5e-1d7723d9c5f2)
 
 
