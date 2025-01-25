@@ -134,18 +134,18 @@ pip install tensorflow-serving-api
 ```
 
 # Course (2)
-__Ensuring Data Quality in Machine Learning Pipeline:__
-- To ensure data quality in the machine learning pipeline you need to make sure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production.
+## Data 
+- Data can be collected through various methods, including live data collection, web scraping, utilizing open-source datasets, or generating synthetic data through data augmentation.
 - Questions to ask before working on a new project:
   - What type of data do you need, and how much of it is required?
   - How often will you need new data, and when do you expect changes in the data?
   - Is the data labelled or annotated? If not, what methods can be used to label it?
   - What are the predictive features?
   - What metrics can be used to evaluate the model?
-  - How do you handle data privacy and security? 
+  - How do you handle data privacy and security?
+- To ensure data quality in the machine learning pipeline you need to make sure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production.
 
-### Data collection:
-![image](https://github.com/user-attachments/assets/26fa7ddd-f666-4e40-ae5e-1d7723d9c5f2)
+
 
 
 
