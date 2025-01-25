@@ -55,6 +55,7 @@ __Challenges in deploying machine learning models:__
 - ___Machine learning or Statistical issues:___
   - Concept drift
   - Data drift
+  - Model performance decay
 - ___Software engine issues:___
    - Whether you need real-time predictions or batch predictions?
    - Whether your prediction service runs in the cloud, or on edge devices?
@@ -131,53 +132,14 @@ pip install tensorflow-model-analysis
 pip install tensorflow-serving-api
 ```
 __Ensuring Data Quality in Machine Learning Pipeline:__
-- 
-
-
-## Scrap:
-- In an ML pipeline, we use a data pipeline comprising a sequence of automated tasks. These processes include data collection, data ingestion, data validation, and data preparation. Additionally, it is essential to monitor the data collection process.
-- You need to ensure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production. It's important to maintain good data quality not just at the beginning but throughout the application's lifecycle. This involves sourcing data responsibly and addressing concerns related to bias and fairness.
-
-Questions to ask before working on a new project:
-- What type of data do you need, and how much of it is required?
-- How often will you need new data, and when do you expect changes in the data?
-- Is the data labelled or annotated? If not, what methods can be used to label it?
-- What are the predictive features?
-- What are the labels?
-- What are the metrics used to evaluate the model?
-
-Dataset issues:
-- Inconsistent formatting
-- Bias and fairness concerns
-- Monitoring data sources for system issues and outages
-
-Data privacy involves the proper usage, collection, retention, deletion, and storage of data.
-How you handle data privacy and security depends on the nature of the data, operating conditions, regulations, and policies.
-
-Sudden Changes:
-- Faulty sensors or cameras
-- Corrupted log data
-- Moved or disabled sensors/cameras
-- System Problems:
-
-Faulty software updates
-- Loss of network connectivity
-- System outages
-- Invalid or incorrect credentials
-
-Detecting Problems with Deployed Models:
-- Data and concept drift: Changes in the input data distribution or the relationship between features and target variables.
-- Changing ground truth: Evolving definitions or changes in the true labels over time.
-- Model performance decay: Model accuracy decreases over time due to data drift or concept drift.
-- Model retraining: Retraining the model can help improve performance and adapt to new data patterns.
-- Feedback and Labeling Processes:
-
-Collect feedback through direct labelling, human labelling, semi-supervised learning, or active learning to enhance the model's performance.
-
-
-
-
-
+- To ensure data quality in the machine learning pipeline you need to make sure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production.
+- Questions to ask before working on a new project:
+  - What type of data do you need, and how much of it is required?
+  - How often will you need new data, and when do you expect changes in the data?
+  - Is the data labelled or annotated? If not, what methods can be used to label it?
+  - What are the predictive features?
+  - What metrics can be used to evaluate the model?
+  - How do you handle data privacy and security? 
 
 ## Data collection:
 ![image](https://github.com/user-attachments/assets/26fa7ddd-f666-4e40-ae5e-1d7723d9c5f2)
@@ -312,6 +274,9 @@ import tensorflow_transform.beam as tft_beam
 - ___Real-time predictions:___ It involves making predictions instantly as new data comes in.
 - ___Batch predictions:___ It involves making predictions on a group of data at once, rather than one at a time.
 - ___Metadata:___ Metadata (data about your data) helps you understand where your data comes from(data provenance) and how it has been processed(data lineage: history of all the steps data went through before reaching its final form), which is useful for fixing errors and improving your models.
+- ___Pipeline:___ A pipeline refers to the series of tasks that are executed in a specific order to achieve a certain goal.
+- ___Orchestration: Orchestration refers to the process of automating multiple tasks to work together in a sequence  or the process that manages the execution of a pipeline ensuring that each step is executed in the proper order and any dependencies between tasks are handled properly.
+- ___Orchestrator:___ Orchestrator is the tool that manages the process of orchestration and raises alerts when something went wrong.
 - ___Orchestration:___ Orchestration refers to the execution and coordination of tasks within an ML pipeline, ensuring that each task is executed in the correct order based on its dependencies.
 - ___Orchestrator:___ Orchestrator is a tool or system that automates and manages this process of orchestration, ensuring that the tasks are scheduled, executed, and monitored efficiently.
 - ___DAG (Directed Acyclic Graph):___ DAG is a powerful tool for defining ML pipelines
