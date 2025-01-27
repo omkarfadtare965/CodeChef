@@ -176,12 +176,92 @@ __TFDV (TensorFlow Data Validation)__
 ## Feature engineering:
 - Feature engineering is the process of improving your model's ability to learn while minimizing compute resources whenever possible. It achieves this by transforming, projecting, eliminating, and computing features in your raw data to create an optimized version of the dataset. During serving, it is crucial to perform the same feature engineering steps to ensure consistency between training and inference.
 
+## tf.transform
+
+![image](https://github.com/user-attachments/assets/35cd5238-62dd-44e7-9edb-d15ed2e58fa3)
+
+![image](https://github.com/user-attachments/assets/42687e2a-f8bd-490c-b7fc-c2b2e1935aaa)
+
+![image](https://github.com/user-attachments/assets/091e4aff-386e-41d3-8b48-999686b02513)
 
 
+tf.Transform in TFX:
+Overview:
 
+tf.Transform processes training data and produces transformed data along with a transform graph. This transform graph is later deployed to the serving system to ensure consistency between training and serving.
+Metadata plays a key role in organizing and managing artifacts produced during the transformation process. Understanding the lineage and provenance of these artifacts helps track the chain of operations applied to the data.
+Workflow of tf.Transform:
 
+The input data is fed into the tf.Transform component, which performs feature engineering.
+The transformed data is passed to the trainer component for model training. Both the transformed data and the transform graph are artifacts, and these are eventually delivered to the serving system.
+Key stages of the pipeline include:
+Data Splitting: The data is split into training and evaluation datasets using the ExampleGen component.
+Statistics Generation: The StatisticsGen component calculates statistical metrics for each feature (e.g., min, max, standard deviation, etc.).
+Schema Inference: The SchemaGen component infers feature types and generates a schema, which is used by downstream components.
+Validation: The ExampleValidator component uses the schema and statistics to detect anomalies or issues in the data.
+Transformation: The Transform component takes the schema and split datasets to perform feature engineering. The transformed data is then fed into the Trainer component for model training.
+Evaluation and Deployment: The trained model is evaluated using the Evaluator component, and the Pusher component deploys the model to the serving infrastructure.
+How tf.Transform Works:
 
+The Transform component internally receives:
+Data splits from ExampleGen.
+Schema information from SchemaGen.
+User-defined feature engineering logic.
+The component generates two outputs:
+A transform graph (a TensorFlow graph) that defines the feature engineering transformations.
+Transformed data, which is used by the Trainer component for model training.
+During serving, the transform graph ensures that the same feature engineering logic is applied to incoming requests, preventing training-serving skew.
+Key Features of tf.Transform:
 
+Consistency: The same transform graph is used for both training and serving, eliminating potential skew caused by different code paths.
+Efficient Processing: Analyzers (e.g., for computing statistics like mean or standard deviation) perform operations once during training (on the full dataset). These computed constants are saved in the transform graph and reused during serving without requiring a full pass on the data.
+Transformations: Common feature engineering operations include:
+Scaling: tft.scale_to_z_score()
+Bucketizing: tft.bucketize()
+Vocabulary creation: tft.vocabulary()
+Dimensionality reduction and more.
+Transform Component with Apache Beam:
+
+The tf.Transform API expresses feature engineering logic, which is executed on an Apache Beam distributed processing cluster.
+The output includes:
+A SavedModel containing the transform graph.
+A separate training graph from the Trainer component.
+Both graphs are deployed to the serving infrastructure to handle feature engineering and prediction requests consistently.
+Code Example for a Preprocessing Function:
+
+python
+Copy
+Edit
+import tensorflow as tf
+import tensorflow_transform as tft
+import tensorflow_transform.beam as tft_beam
+import apache_beam as beam
+
+def preprocessing_fn(inputs):
+    outputs = {}
+
+    # Scaling dense float features
+    for key in DENSE_FLOAT_FEATURE_KEYS:
+        outputs[key] = tft.scale_to_z_score(inputs[key])
+
+    # Creating vocabulary for categorical features
+    for key in VOCAB_FEATURE_KEYS:
+        outputs[key] = tft.vocabulary(inputs[key], vocab_filename=key)
+
+    # Bucketizing features
+    for key in BUCKET_FEATURE_KEYS:
+        outputs[key] = tft.bucketize(inputs[key], FEATURE_BUCKET_COUNT)
+
+    return outputs
+Key Advantages of tf.Transform:
+
+Prevents training-serving skew by using the same graph for feature engineering during both training and serving.
+Enables distributed processing of large datasets with Apache Beam.
+Efficiently computes and applies transformations using analyzers during training.
+Analyzer Framework:
+
+Analyzers are used for operations like scaling, bucketizing, vocabulary creation, and dimensionality reduction.
+They compute constants (e.g., mean, standard deviation) during training and apply these constants during serving without requiring a full data pass.
 
 
 
