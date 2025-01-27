@@ -603,3 +603,51 @@ store = metadata_store.MetadataStore(connection_config)
 ```
 
 ### Schema Developement
+
+
+
+
+# Bro
+Does TFX use AutoML (e.g., Trainer and Tuner Components)?
+TFX Trainer and Tuner:
+
+Trainer: The TFX Trainer component is used to train machine learning models. It requires you to write custom training logic (usually with TensorFlow) that defines your model architecture, training procedure, and evaluation metrics.
+Tuner: This component in TFX helps with hyperparameter tuning using TensorFlow's KerasTuner. You define a search space for hyperparameters, and it optimizes them to improve model performance.
+AutoML in TFX:
+
+TFX does not inherently include AutoML capabilities. While the Tuner component automates hyperparameter tuning, it does not perform tasks like Neural Architecture Search (NAS) or the end-to-end model selection that frameworks like AutoML or SageMaker Autopilot offer.
+TFX assumes you have domain knowledge and focuses on providing a robust pipeline for building, deploying, and monitoring ML models.
+AutoML Frameworks (e.g., SageMaker Autopilot) vs. TFX
+AutoML Frameworks:
+
+Fully automates the ML pipeline, including data preprocessing, feature engineering, model selection, hyperparameter tuning, and training.
+Example: SageMaker Autopilot can automatically explore multiple algorithms (e.g., XGBoost, Deep Learning) and configurations, select the best-performing one, and deploy it.
+Does not require manual intervention or deep ML expertise.
+Typically more suitable for teams with limited ML expertise or when rapid prototyping is needed.
+TFX:
+
+Provides a comprehensive pipeline for building ML workflows but assumes you have more control and knowledge about your model.
+Focuses on the entire lifecycle: data validation, preprocessing, model training, evaluation, deployment, and monitoring.
+Trainer and Tuner components require you to manually design models and search spaces.
+Can TFX and AutoML Be Used Together?
+Yes, they can complement each other, but it depends on the use case:
+
+If you're using AutoML (e.g., SageMaker Autopilot):
+
+You don’t necessarily need TFX, as the AutoML system automates most of the pipeline.
+You may still use TFX for downstream tasks like monitoring model performance, detecting drift, or managing multiple models over time.
+If you're using TFX:
+
+You have more flexibility but will need to handle tasks like model design and tuning yourself, or integrate AutoML tools selectively into your TFX pipeline.
+For example, you could replace the Trainer component in TFX with a model trained using AutoML.
+When to Choose TFX vs. AutoML?
+Use TFX when:
+
+You need fine-grained control over the ML pipeline.
+You have expertise in ML and want to implement custom models or workflows.
+You're working with TensorFlow and want seamless integration into TensorFlow Serving.
+Use AutoML (e.g., SageMaker Autopilot) when:
+
+You want to quickly prototype models with minimal manual effort.
+You don’t have the resources or expertise to build custom pipelines.
+You want an easy way to experiment with multiple algorithms and feature engineering approaches.
