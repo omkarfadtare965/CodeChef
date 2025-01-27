@@ -5,26 +5,31 @@
   ![image](https://github.com/user-attachments/assets/1f3bf615-0919-4da7-84dc-29d4c720308e)
 
 ### Degree of automation in decision-making using AI & Machine learning:
-- __Human only:__ No automation is involved; all decisions are made entirely by humans.
-- __Shadow automation:__ Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
-- __AI Assistance:__ In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
-- __Partial automation:__ In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
-- __Full automation:__ The learning algorithm handles every decision without human intervention.
+- __A) Human only:__
+  - No automation is involved; all decisions are made entirely by humans.
+- __B) Shadow automation:__
+  - Learning algorithms make predictions, but these are not applied in the actual process. For example, a system might predict factory machine failures but the predictions are not acted upon.
+- __C) AI Assistance:__
+  - In this stage, AI helps humans by providing insights or suggestions. For example, when inspecting a smartphone, an AI might highlight areas with scratches to guide the human inspector to those spots but the final decision is still made by the human.
+- __D) Partial automation:__
+  - In this case, the learning algorithm makes decisions when it is confident(e.g., determining if a product is defective or not). If the algorithm is unsure, the decision is referred to a human.
+- __E) Full automation:__
+  - The learning algorithm handles every decision without human intervention.
 - In many real-world deployments, we begin with Human-only decisions and gradually shift towards Full automation as confidence grows. The level of automation chosen depends on the performance of the AI and the use case. For example, in healthcare, you might stop at partial automation where AI assists doctors rather than making all decisions.
 - AI Assistance and Partial Automation are both examples of "human-in-the-loop" systems, where humans remain involved in the decision-making process
 
   ![image](https://github.com/user-attachments/assets/28a4375e-9fb5-4577-ae23-86f2608f53e5)
 
 ### Machine learning Production Project lifecycle:
-- __Scoping:__
+- __A) Scoping:__
   - In this phase, you define the project, identify features (X) and target (Y), and estimate key metrics like accuracy, latency (prediction time), throughput (queries per second), and resource needs (time, compute, budget).
-- __Data:__
+- __B) Data:__
   - In this phase, you collect and organize data, define data sources, establish baselines, and label the data. 
-- __Modeling:__
+- __C) Modeling:__
   - In this phase, you select the algorithm, train the model, and perform error analysis. You then adjust the model and perform hyperparameter tuning. Since machine learning is an iterative process, you may need to update the model or decide whether to collect more data or not, followed by further error analysis.
-- __Deployment & Monitoring:__
+- __D) Deployment & Monitoring:__
   - In this phase, the model is deployed into production (e.g., cloud, edge, IoT, web browser) to serve prediction requests. This phase also includes monitoring the system and tracking incoming data.
-- __Maintenance:__
+- __E) Maintenance:__
   - After the initial deployment, you may need to retrain the model using newly collected data to continuously improve and update it until a more accurate version is deployed.
 
   ![image](https://github.com/user-attachments/assets/be8511b5-0b15-43a5-8f6b-e28d49a620f9)
@@ -33,12 +38,12 @@
 - __New product:__ When launching a new product that hasn’t been offered before, a common pattern is to direct a small portion of traffic to the model, and then gradually increase it as confidence grows. This reduces the risk of impacting a large number of users with an untested system.
 - For example, a company releases a new recommendation system. Initially, only 5% of users got recommendations from the new system. As the system proves reliable, traffic is gradually increased until all users are served by it.
 - __Automate or Assist manual tasks:__ This pattern is useful when replacing or supporting a manual process with an algorithm. For example, if factory workers inspect smartphones for scratches, and you want to use machine learning to assist or replace human inspectors.
-  - __Shadow deployment:__ The machine learning algorithm "shadows" the human worker by running in parallel but doesn’t make any actual decisions. The output from the algorithm is compared with the human’s decisions to evaluate its performance.
+  - __A) Shadow deployment:__ The machine learning algorithm "shadows" the human worker by running in parallel but doesn’t make any actual decisions. The output from the algorithm is compared with the human’s decisions to evaluate its performance.
   - For example, a factory inspector and an algorithm both check for scratches on phones, but only the human inspector's decision matters at first. Over time, the algorithm's performance is analyzed before it’s allowed to make real decisions.
-  - __Canary deployment:__ Once confident, you can let the algorithm start making decisions with a small percentage of traffic (e.g., 5%). This way, mistakes will only impact a small part of the system. As the model performs well, the traffic can be gradually increased.
+  - __B) Canary deployment:__ Once confident, you can let the algorithm start making decisions with a small percentage of traffic (e.g., 5%). This way, mistakes will only impact a small part of the system. As the model performs well, the traffic is then gradually increased.
   - For example, the algorithm starts inspecting only 5% of phones. If it performs well, this is increased to 50%, and eventually, all phones are inspected by the algorithm.
 - __Replacing a previous machine learning system:__ When replacing an older machine learning system with a newer one, it’s common to gradually direct traffic to the new system while monitoring its performance.
-  - __Blue-Green deployment:__ This involves running two versions of a system: an old version (Blue) and a new version (Green). At deployment, traffic is switched entirely from Blue to Green. If there’s an issue with the new system, you can quickly revert traffic back to the Blue version, ensuring minimal disruption.
+  - __C) Blue-Green deployment:__ This involves running two versions of a system: an old version (Blue) and a new version (Green). At deployment, traffic is switched entirely from Blue to Green. If there’s an issue with the new system, you can quickly revert traffic back to the Blue version, ensuring minimal disruption.
 
 __Monitoring deployed machine learning systems:__
 - The most common way to monitor a machine learning (ML) system is by using a dashboard that tracks its performance over time. Depending on your application, the dashboard may monitor different metrics, such as server load, non-null outputs (where the ML system fails to return an output), and missing input values (which can indicate that something in the input data has changed).
@@ -70,9 +75,9 @@ __Monitoring deployed machine learning systems:__
 - MLOps ensures that a model can automatically retrain itself when performance degrades or when new data is available, without requiring manual intervention.  This allows the model to stay up-to-date and accurate as conditions change, reducing the need for constant human oversight.
 
 __Degree of MLOps Automation in ML project lifecycle:__
-- __Low degree of MLOps:__ Manual intervention is needed for retraining, monitoring, and deployment.
-- __Medium degree of MLOps:__ Some processes are automated, like monitoring and triggering retraining, but humans still need to make final decisions.
-- __High degree of MLOps:__ Almost everything is automated, including data collection, model retraining, deployment, and monitoring, with minimal human involvement.
+- __A) Low degree of MLOps:__ Manual intervention is needed for retraining, monitoring, and deployment.
+- __B) Medium degree of MLOps:__ Some processes are automated, like monitoring and triggering retraining, but humans still need to make final decisions.
+- __C) High degree of MLOps:__ Almost everything is automated, including data collection, model retraining, deployment, and monitoring, with minimal human involvement.
 
 ### Machine learning pipeline:
 - An ML (Machine Learning) pipeline is a step-by-step process or a software architecture that automates the flow of data through a machine learning model. It typically includes stages such as data collection, data preprocessing, feature engineering, model training, model evaluation, and deployment. The pipeline ensures that each step is executed in the correct order and can be reliably repeated, making the entire machine-learning process more efficient and scalable.
@@ -134,7 +139,7 @@ pip install tensorflow-serving-api
 ```
 
 # Course (2)
-## Data 
+## Data Collection and Considerations
 - Data can be collected through various methods, including live data collection, web scraping, utilizing open-source datasets, or generating synthetic data through data augmentation.
 - Questions to ask before working on a new project:
   - What type of data do you need, and how much of it is required?
@@ -145,16 +150,65 @@ pip install tensorflow-serving-api
   - How do you handle data privacy and security?
 - To ensure data quality in the machine learning pipeline you need to make sure that your training data adequately covers the same feature space as the prediction requests you will receive once your model is in production.
 
+### Data-related issues:
+- Mainly data-related issues occur due to drift and skew.
+  
+__Drift & Types of Drift:__ refers to changes in the statistical properties or distribution of data over time that impacts model performance.
+- __A) Data drift__ occurs when the statistical properties of the data used by a model change over time. This can make the model less accurate because it was trained on data with different characteristics. For example, if the features of the data (like user behaviours or product preferences) change, the model's performance may degrade.
+- __B) Concept drift__ refers to a change in the relationship between the input and output variables over time. For instance, if a model predicts product purchases based on age and the purchasing behaviour of different age groups shifts, the model's predictions will become less accurate.
+- __C) Covariate drift__ happens when the distribution of the predictor variables (features) changes over time. For example, if temperature was a key predictor for ice cream sales, and the relationship between temperature and sales changes (people start buying more ice cream on colder days), the model's predictions would be affected.
+- __D) Prior probability drift__ occurs when the frequency of the target outcomes changes over time. For instance, if a coin flip initially results in heads 70% of the time and later changes to a 50-50 distribution, a model trained on the initial data will be less accurate in predicting future outcomes.
+- __E) Model drift__ refers to the phenomenon where a model that used to perform well becomes less accurate over time. This can happen due to changes in the data distribution, changes in the real world that affect the relationships the model learned, or other factors that make the original model less relevant.
+- __F) Population drift__ occurs when the population on which the model is applied changes over time. For example, a model trained on movie preferences in one country may not perform well if applied to a different country with different preferences.
+- __G) Label drift__ happens when the meaning of the target labels changes over time. For example, if the criteria for labelling data as "cat" or "dog" change, the model will struggle to learn and make accurate predictions because the definitions of the labels are inconsistent.
+
+__Skew & Types of Skew:__ refers to differences between two static versions of data, such as the training dataset and the serving dataset.
+- __A) Schema Skew:__ Occurs when the training and serving data schemas do not match (e.g., expecting a float but receiving an integer).
+- __B) Distribution Skew:__ refers to significant differences in the distribution of training and serving data due to faulty sampling methods, different data sources, or seasonality trends.
+- __C) Feature Skew:__ happens when feature values differ significantly between training and serving datasets due to transformations applied inconsistently.
+
+__TFDV (TensorFlow Data Validation)__
+- Helps developers understand, validate, and monitor data at scale.
+- Provides browser-based visualization, generates descriptive statistics, provides schema inference, and validity checks.
+- TFDV detects drift or skew in categorical features using metrics like L-infinity distance (Chebyshev distance) and allows setting thresholds to trigger warnings when drift exceeds acceptable levels.
+- Compute baseline statistics and schema for training data. Generate statistics and schema for serving data. Compare the two datasets for significant changes (e.g., in data types, feature values, or distributions). Anomalies trigger alerts for further investigation and mitigation.
+
+## Feature engineering:
+- Feature engineering is the process of improving your model's ability to learn while minimizing compute resources whenever possible. It achieves this by transforming, projecting, eliminating, and computing features in your raw data to create an optimized version of the dataset. During serving, it is crucial to perform the same feature engineering steps to ensure consistency between training and inference.
 
 
 
 
 
 
-## Validatin and detecting data issues:
-- Drift refers to the changes in data over time
-- Skew refres to the differences between two static versions or different sources such as trining set and serving set (Data that you are getting for prediction request)
-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 seasanality and trend or unexpected events
